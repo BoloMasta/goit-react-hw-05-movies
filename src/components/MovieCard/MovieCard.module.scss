@@ -1,0 +1,39 @@
+.MovieCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(100% - 20px);
+  height: 100%;
+  padding: 10px;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: flex-start;
+    padding: 10px 20px;
+  }
+
+  &__poster {
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    flex-basis: 30%;
+  }
+
+  &__title {
+    margin-top: 10px;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  &__score {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  &__subtitle {
+    margin-bottom: 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+}

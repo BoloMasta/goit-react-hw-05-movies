@@ -5,7 +5,7 @@ const Navbar = () => {
     <nav className={css.Navbar}>
       <div className={css.Navbar__logo}>
         <a href="/" className={css.Navbar__link}>
-          🎥
+          📽️
         </a>
       </div>
       <div className={css.Navbar__links}>

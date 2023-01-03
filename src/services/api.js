@@ -7,7 +7,7 @@ class FetchApiMovies {
   async fetchTrendingMovies() {
     try {
       const response = await axios.get(`/trending/movie/day?api_key=${apiKey}`);
-      // console.log(response.data.results);
+      // console.log(response.data);
       return response.data;
     } catch (error) {
       console.log(error);
@@ -27,8 +27,9 @@ class FetchApiMovies {
 
   async fetchMovieDetails(movieId) {
     try {
-      const { data } = await axios.get(`/movie/${movieId}?api_key=${apiKey}`);
-      return data;
+      const response = await axios.get(`/movie/${movieId}?api_key=${apiKey}`);
+      console.log(response.data);
+      return response.data;
     } catch (error) {
       console.log(error);
     }
