@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 import api from '../services/api';
 
+import Navbar from './Navbar/Navbar';
 import MoviesList from './MoviesList/MoviesList';
 import Loader from './Loader/Loader';
 
@@ -29,6 +30,7 @@ export const App = () => {
 
   return (
     <>
+      <Navbar />
       <MoviesList movies={movies} />
       {error && <h1>Oops, something went wrong: {error.message}</h1>}
       {isLoading && <Loader />}
