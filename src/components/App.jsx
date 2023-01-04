@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import api from '../services/api';
 import Loader from './Loader/Loader';
 import Navbar from './Navbar/Navbar';
-import GoBackButton from './GoBackButton/GoBackButton';
+import Button from './Button/Button';
 import MoviesList from './MoviesList/MoviesList';
 import MovieCard from './MovieCard/MovieCard';
 
@@ -59,7 +59,7 @@ export const App = () => {
       <Navbar />
       {movieId ? (
         <>
-          <GoBackButton />
+          <Button label="Go back" icon="left_arrow" />
           <MovieCard movie={movieDetails} />
         </>
       ) : (

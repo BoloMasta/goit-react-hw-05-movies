@@ -7,6 +7,7 @@ const MovieCard = ({ movie }) => {
     poster_path,
     title,
     vote_average,
+    vote_count,
     overview,
     release_date,
     genres,
@@ -20,7 +21,7 @@ const MovieCard = ({ movie }) => {
   const productionCompaniesList = production_companies
     ?.map(company => {
       if (company.logo_path) {
-        return `<img src="https://image.tmdb.org/t/p/w300${company.logo_path}" alt="${company.name}" style="max-height: 60px; max-width: 150px; padding: 10px 20px"/>`;
+        return `<img src="https://image.tmdb.org/t/p/w300${company.logo_path}" alt="${company.name}" style="max-height: 50px; max-width: 150px; padding: 10px 20px"/>`;
       }
     })
     .join('');
@@ -34,7 +35,10 @@ const MovieCard = ({ movie }) => {
             {title} ({release_date?.slice(0, 4)})
           </h2>
           <p className={css.MovieCard__score}>
-            User score: {Math.round(vote_average * 10)}%
+            User score: {Math.round(vote_average * 10)}%&ensp;
+            <span className={css.MovieCard__textdata}>
+              ({vote_count} votes)
+            </span>
           </p>
           <h3 className={css.MovieCard__header}>Overview</h3>
           <p className={css.MovieCard__textdata}>{overview}</p>
