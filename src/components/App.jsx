@@ -9,6 +9,7 @@ import MovieCard from './MovieCard/MovieCard';
 
 export const App = () => {
   const [movies, setMovies] = useState([]);
+
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   // const [query, setQuery] = useState('');
