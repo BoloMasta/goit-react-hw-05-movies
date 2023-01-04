@@ -2,9 +2,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: calc(100% - 20px);
+  width: calc(100% - 30px);
   height: 100%;
-  padding: 10px;
+  padding: 15px;
 
   &__info {
     display: flex;
@@ -15,9 +15,10 @@
   }
 
   &__poster {
+    max-height: 500px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    flex-basis: 30%;
+    align-self: flex-start;
   }
 
   &__title {
@@ -29,11 +30,33 @@
   &__score {
     font-size: 1.5rem;
     font-weight: 500;
+    margin: 10px 0;
   }
 
-  &__subtitle {
+  &__header {
     margin-bottom: 0;
     font-size: 1.5rem;
     font-weight: 500;
+  }
+
+  &__textdata {
+    margin: 5px 0;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  &__productionCompaniesList {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-top: 10px;
+  }
+
+  &__productionCompany {
+    display: inline-block;
+    background-color: red;
   }
 }

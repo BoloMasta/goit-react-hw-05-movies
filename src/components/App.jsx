@@ -1,15 +1,14 @@
 import { useState, useEffect } from 'react';
 
 import api from '../services/api';
-
-import Navbar from './Navbar/Navbar';
 import Loader from './Loader/Loader';
+import Navbar from './Navbar/Navbar';
+import GoBackButton from './GoBackButton/GoBackButton';
 import MoviesList from './MoviesList/MoviesList';
 import MovieCard from './MovieCard/MovieCard';
 
 export const App = () => {
   const [movies, setMovies] = useState([]);
-
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   // const [query, setQuery] = useState('');
@@ -59,7 +58,10 @@ export const App = () => {
     <>
       <Navbar />
       {movieId ? (
-        <MovieCard movie={movieDetails} />
+        <>
+          <GoBackButton />
+          <MovieCard movie={movieDetails} />
+        </>
       ) : (
         <MoviesList
           movies={movies}
