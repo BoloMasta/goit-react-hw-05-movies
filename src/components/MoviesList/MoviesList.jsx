@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import css from './MoviesList.module.scss';
 
 const MoviesList = ({ movies, label, handleLinkClick }) => (
@@ -6,13 +7,25 @@ const MoviesList = ({ movies, label, handleLinkClick }) => (
     <ul className={css.MoviesList__list}>
       {movies.map(movie => (
         <li key={movie.id} className={css.MoviesList__item}>
-          <a
+          <Link
+            to={`${movie.id}`}
+            // to={{
+            //   path:
+            // pathname: `/movies/${movie.id}`,
+            // state: { from: { label, location: '/' } },
+
+            className={css.MoviesList__link}
+          >
+            {movie.title}
+          </Link>
+
+          {/* <a
             href="#"
             className={css.MoviesList__link}
             onClick={() => handleLinkClick(movie.id)}
           >
             {movie.title}
-          </a>
+          </a> */}
         </li>
       ))}
     </ul>

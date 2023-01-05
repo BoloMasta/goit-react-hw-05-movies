@@ -1,5 +1,7 @@
 import css from './MovieCard.module.scss';
 import Parser from 'html-react-parser';
+
+import Button from 'components/Button/Button';
 import AdditionalInformation from '../AdditionalInformation/AdditionalInformation';
 
 const MovieCard = ({ movie }) => {
@@ -14,7 +16,11 @@ const MovieCard = ({ movie }) => {
     production_companies,
     id,
   } = movie;
-  const genresList = genres?.map(genre => genre.name).join(', ');
+  const genresList = genres
+    ?.map(genre => {
+      if (genre.name) return;
+    })
+    .join(', ');
   const posterUrl = `https://image.tmdb.org/t/p/w500${poster_path}`;
   if (posterUrl === 'https://image.tmdb.org/t/p/w500undefined')
     return require('../../images/default_poster.jpg');
@@ -28,6 +34,7 @@ const MovieCard = ({ movie }) => {
 
   return (
     <>
+      <Button label="Go back" icon="left_arrow" />
       <div className={css.MovieCard}>
         <img src={posterUrl} alt={title} className={css.MovieCard__poster} />
         <div className={css.MovieCard__info}>

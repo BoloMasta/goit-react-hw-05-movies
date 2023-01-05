@@ -37,16 +37,4 @@
     margin-left: 20px;
     color: #000;
   }
-
-  &__link {
-    text-decoration: none;
-    font-weight: 500;
-    color: rgb(255, 255, 255);
-    transition: all 0.3s ease-in-out;
-
-    &:hover {
-      color: #ff3cac;
-      text-shadow: 3px 3px 20px #ff3cac, -2px 1px 30px #ff3cac;
-    }
-  }
 }

@@ -1,22 +1,19 @@
 import css from './Navbar.module.scss';
+import { StyledNavLink, StyledLogoNavLink } from 'components/App.styled';
 
 const Navbar = () => {
   return (
-    <nav className={css.Navbar}>
-      <div className={css.Navbar__logo}>
-        <a href="/" className={css.Navbar__link}>
-          📽️
-        </a>
-      </div>
-      <div className={css.Navbar__links}>
-        <a href="/" className={css.Navbar__link}>
-          Home
-        </a>
-        <a href="/movies" className={css.Navbar__link}>
-          Movies
-        </a>
-      </div>
-    </nav>
+    <>
+      <nav className={css.Navbar}>
+        <div className={css.Navbar__logo}>
+          <StyledLogoNavLink to="/">📽️</StyledLogoNavLink>
+        </div>
+        <div className={css.Navbar__links}>
+          <StyledNavLink to="/">Home</StyledNavLink>
+          <StyledNavLink to="/movies">Movies</StyledNavLink>
+        </div>
+      </nav>
+    </>
   );
 };
 
