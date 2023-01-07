@@ -29,10 +29,6 @@ export const StyledNavLink = styled(NavLink)`
 export const StyledLogoNavLink = styled(NavLink)`
   text-decoration: none;
 
-  &:hover {
-    text-shadow: 3px 3px 20px #ff3cac, -2px 1px 30px #ff3cac;
-  }
-
   &.active {
     text-decoration: none;
   }

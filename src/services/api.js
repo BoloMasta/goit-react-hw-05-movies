@@ -28,7 +28,7 @@ class FetchApiMovies {
   async fetchMovieDetails(movieId) {
     try {
       const response = await axios.get(`/movie/${movieId}?api_key=${apiKey}`);
-      console.log(response.data);
+      // console.log(response.data);
       return response.data;
     } catch (error) {
       console.log(error);

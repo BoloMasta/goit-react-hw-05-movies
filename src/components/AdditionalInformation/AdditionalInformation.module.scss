@@ -1,11 +1,10 @@
 .AdditionalInformation {
   width: calc(100% - 30px);
-  padding: 15px;
 
   &__title {
-    margin: 10px;
     font-size: 1.5rem;
     font-weight: 500;
+    margin-bottom: 5px;
   }
 
   &__list {

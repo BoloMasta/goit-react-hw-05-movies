@@ -1,9 +1,5 @@
 .Navbar {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
   height: 5rem;
-  padding: 0 2rem;
   background-color: #ff3cac;
   background-image: linear-gradient(
     225deg,
@@ -37,4 +33,11 @@
     margin-left: 20px;
     color: #000;
   }
+}
+
+.ContainerNavbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
 }
