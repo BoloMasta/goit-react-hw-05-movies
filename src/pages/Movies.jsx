@@ -1,4 +1,5 @@
 import { SearchBox } from 'components/SearchBox';
+// import api from 'services/api';
 
 const Movies = () => {
   return (

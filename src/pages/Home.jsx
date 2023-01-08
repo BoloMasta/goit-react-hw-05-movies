@@ -5,7 +5,7 @@ import Loader from '../components/Loader/Loader';
 import Container from '../components/Container/Container';
 // import Navbar from '../components/Navbar/Navbar';
 // import Button from '../components/Button/Button';
-import MoviesList from '../components/MoviesList/MoviesList';
+import MoviesList from '../components/MoviesList';
 // import MovieCard from '../components/MovieCard/MovieCard';
 
 //import { StyledNavLink } from '../components/App.styled';

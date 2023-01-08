@@ -1,4 +1,6 @@
-.Button {
+import styled from 'styled-components';
+
+const Wrapper = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,4 +36,20 @@
     height: 25px;
     filter: grayscale(1) invert(1);
   }
-}
+`;
+
+const Icon = styled.img`
+  margin-right: 10px;
+  width: 25px;
+  height: 25px;
+  filter: grayscale(1) invert(1);
+`;
+
+const Button = ({ label, icon }) => (
+  <Wrapper>
+    <Icon src={require(`../images/${icon}.png`)} alt={label} />
+    {label}
+  </Wrapper>
+);
+
+export default Button;
