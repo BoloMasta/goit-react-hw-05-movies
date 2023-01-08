@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/30.0cda0f06.chunk.css","mappings":"AAAA,4BAEE,cADA,iBAEA","sources":["components/Container/Container.module.scss"],"sourcesContent":[".Container {\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 0 20px;\n}\n"],"names":[],"sourceRoot":""}
