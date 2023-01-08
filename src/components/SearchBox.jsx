@@ -12,7 +12,6 @@ const Wrapper = styled.div`
 const Input = styled.input`
   padding: 8px 32px 8px 8px;
   width: 250px;
-  border-radius: 10px;
   border-image: linear-gradient(
     225deg,
     rgba(255, 60, 172) 0%,
@@ -23,29 +22,56 @@ const Input = styled.input`
   border-width: 2px;
   border-style: solid;
   font: inherit;
+  opacity: 0.7;
 
   &:focus {
     outline: none;
-    border-radius: 10px;
+    opacity: 1;
+    background-image: linear-gradient(
+      90deg,
+      rgba(43, 134, 197, 0.15) 0%,
+      rgba(120, 75, 160, 0.15) 50%,
+      rgba(255, 60, 172, 0.15) 100%
+    );
+  }
+`;
+
+const Button = styled.button`
+  border: none;
+  width: 38.4px;
+  height: 38.4px;
+  cursor: pointer;
+  background-image: linear-gradient(
+    270deg,
+    rgba(43, 134, 197) 0%,
+    rgba(120, 75, 160) 50%,
+    rgba(255, 60, 172) 100%
+  );
+  border: none;
+  outline: none;
+  opacity: 0.8;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: absolute;
+  right: -38.4px;
+
+  &:hover {
+    opacity: 1;
   }
 `;
 
 const Icon = styled(HiSearch)`
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  right: 6px;
+  width: 25px;
+  height: 25px;
+  filter: invert(1);
 `;
 
-export const SearchBox = ({ value, onChange }) => {
+export const SearchBox = ({ value, onChange, handleSubmit }) => {
   return (
     <Wrapper>
-      <Icon />
-      <Input
-        type="text"
-        value={value}
-        onChange={e => onChange(e.target.value)}
-      />
+      <Input type="text" value={value} onChange={onChange} />
+      <Button type="submit" onClick={handleSubmit}>
+        <Icon />
+      </Button>
     </Wrapper>
   );
 };

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { useLocation } from 'react-router-dom';
 
 const Wrapper = styled.div`
   margin: 0 auto;
@@ -38,19 +39,26 @@ const LinkToDetails = styled(Link)`
   }
 `;
 
-const MoviesList = ({ movies, label }) => (
-  <Wrapper>
-    <Header>{label}</Header>
-    <List>
-      {movies.map(movie => (
-        <Item key={movie.id}>
-          <LinkToDetails to={`/movies/${movie.id}`} state={{ from: '/' }}>
-            {movie.title}
-          </LinkToDetails>
-        </Item>
-      ))}
-    </List>
-  </Wrapper>
-);
+const MoviesList = ({ movies, label }) => {
+  const location = useLocation();
+
+  return (
+    <Wrapper>
+      <Header>{label}</Header>
+      <List>
+        {movies.map(movie => (
+          <Item key={movie.id}>
+            <LinkToDetails
+              to={`/movies/${movie.id}`}
+              state={{ from: location }}
+            >
+              {movie.title}
+            </LinkToDetails>
+          </Item>
+        ))}
+      </List>
+    </Wrapper>
+  );
+};
 
 export default MoviesList;

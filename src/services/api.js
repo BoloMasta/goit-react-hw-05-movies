@@ -16,10 +16,11 @@ class FetchApiMovies {
 
   async fetchMoviesByQuery(query) {
     try {
-      const { data } = await axios.get(
+      const response = await axios.get(
         `/search/movie?api_key=${apiKey}&query=${query}`
       );
-      return data;
+      console.log(response.data);
+      return response.data;
     } catch (error) {
       console.log(error);
     }
