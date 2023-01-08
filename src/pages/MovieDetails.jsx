@@ -1,7 +1,7 @@
 import Parser from 'html-react-parser';
 import { useParams, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 // import { Button } from 'components/SharedLayouts.styled';
 
@@ -14,6 +14,7 @@ import AdditionalInformation from '../components/AdditionalInformation/Additiona
 
 import {
   Wrapper,
+  BackButton,
   MovieCard,
   Poster,
   Info,
@@ -45,7 +46,6 @@ const MovieDetails = () => {
         setError(error);
       } finally {
         setIsLoading(false);
-        console.log(location, backLinkHref);
       }
     };
     getMovieDetails();
@@ -62,16 +62,21 @@ const MovieDetails = () => {
     production_companies,
   } = movieDetails || {};
 
+  const defaultPoster = require('images/default_poster.jpg');
   const genresList = genres?.map(genre => genre.name).join(', ');
-  const posterUrl = `https://image.tmdb.org/t/p/w500${poster_path}`;
-  if (posterUrl === 'https://image.tmdb.org/t/p/w500undefined')
-    return require('images/default_poster.jpg');
+  const posterUrl =
+    poster_path === null
+      ? defaultPoster
+      : `https://image.tmdb.org/t/p/w500${poster_path}`;
+
+  if (posterUrl === 'https://image.tmdb.org/t/p/w500undefined') return;
+
   const productionCompaniesList = production_companies
     ?.map(company => {
       if (company.logo_path) {
         return `<img src="https://image.tmdb.org/t/p/w300${company.logo_path}" alt="${company.name}" style="max-height: 50px; max-width: 150px; padding: 10px 20px"/>`;
       } else {
-        return ``;
+        return ' ';
       }
     })
     .join('');
@@ -81,30 +86,66 @@ const MovieDetails = () => {
       {isLoading && <Loader />}
       {error && <h1>Something went wrong. Try again later.</h1>}
 
-      <Link to={backLinkHref}>
+      <BackButton to={backLinkHref}>
         <Button label="Go back" icon="left_arrow" />
-      </Link>
+      </BackButton>
 
       <MovieCard>
         <Poster src={posterUrl} alt={title} />
         <Info>
           <Title>
-            {title} ({release_date?.slice(0, 4)})
+            {title}
+            {release_date && <span> ({release_date.slice(0, 4)})</span>}
           </Title>
-          <Score>
-            User score: {Math.round(vote_average * 10)}%&ensp;
-            <Votes>
-              ({vote_count} {vote_count === 1 ? 'vote' : 'votes'})
-            </Votes>
-          </Score>
+
+          {vote_count > 0 ? (
+            <Score>
+              User score: {Math.round(vote_average * 10)}%&ensp;
+              <Votes>
+                ({vote_count} {vote_count === 1 ? 'vote' : 'votes'})
+              </Votes>
+            </Score>
+          ) : (
+            <Score>No votes yet</Score>
+          )}
+
           <Header>Overview</Header>
-          <Overview>{overview}</Overview>
+          {overview !== '' ? (
+            <Overview>{overview}</Overview>
+          ) : (
+            <Overview>No overview provided</Overview>
+          )}
+
           <Header>Genres</Header>
-          <Genres>{genresList}</Genres>
+          {genresList !== '' ? (
+            <Genres>{genresList}</Genres>
+          ) : (
+            <Genres>No genres provided</Genres>
+          )}
+
           <Header>Production companies</Header>
-          <ProuctionCompanies>
-            {Parser(productionCompaniesList.toString())}
-          </ProuctionCompanies>
+          {productionCompaniesList !== '' ? (
+            <ProuctionCompanies>
+              {Parser(productionCompaniesList.toString())}
+            </ProuctionCompanies>
+          ) : (
+            <ProuctionCompanies>
+              No production companies provided
+            </ProuctionCompanies>
+          )}
+          {/* {overview !== '' &&
+            ((<Header>Overview</Header>), (<Overview>{overview}</Overview>))}
+
+          {genresList !== '' &&
+            ((<Header>Genres</Header>), (<Genres>{genresList}</Genres>))}
+
+          {productionCompaniesList !== '' &&
+            ((<Header>Production companies</Header>),
+            (
+              <ProuctionCompanies>
+                ,{Parser(productionCompaniesList.toString())}
+              </ProuctionCompanies>
+            ))} */}
         </Info>
       </MovieCard>
 

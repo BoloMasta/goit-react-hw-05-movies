@@ -19,7 +19,7 @@ class FetchApiMovies {
       const response = await axios.get(
         `/search/movie?api_key=${apiKey}&query=${query}`
       );
-      console.log(response.data);
+      // console.log(response.data);
       return response.data;
     } catch (error) {
       console.log(error);

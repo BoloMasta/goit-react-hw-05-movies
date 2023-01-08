@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   max-width: 1200px;
@@ -6,10 +7,15 @@ export const Wrapper = styled.div`
   padding: 0 20px;
 `;
 
+export const BackButton = styled(Link)`
+  display: inline-block;
+  text-decoration: none;
+`;
+
 export const MovieCard = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: calc(100% - 30px);
   height: 100%;
 `;

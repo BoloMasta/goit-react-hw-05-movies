@@ -26,7 +26,6 @@ export const Header = styled.header`
   align-items: center;
   justify-content: flex-start;
   gap: 12px;
-  margin-bottom: 16px;
   height: 5rem;
   overflow: visible;
   background-color: transparent;
