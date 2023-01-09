@@ -5,7 +5,7 @@ import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import { SearchBox } from 'components/SearchBox';
-import MoviesList from 'components/MoviesList';
+import { MoviesList } from 'components/MoviesList';
 import { Loader } from 'components/Loader';
 import api from 'services/api';
 

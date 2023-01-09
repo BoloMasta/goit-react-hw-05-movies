@@ -7,7 +7,7 @@ import {
   LinkToDetails,
 } from '../Styled/MoviesList';
 
-const MoviesList = ({ movies, label }) => {
+export const MoviesList = ({ movies, label }) => {
   const location = useLocation();
 
   return (
@@ -28,5 +28,3 @@ const MoviesList = ({ movies, label }) => {
     </Wrapper>
   );
 };
-
-export default MoviesList;
