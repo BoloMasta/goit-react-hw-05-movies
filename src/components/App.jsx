@@ -2,6 +2,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { lazy } from 'react';
 import { SharedLayout } from './SharedLayouts';
+// import { GlobalStyles } from 'Styled/GlobalStyles';
 
 // import Navbar from './Navbar/Navbar';
 
