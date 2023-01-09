@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import api from '../services/api';
-import Loader from '../components/Loader/Loader';
+import { Loader } from '../components/Loader';
 import Container from '../components/Container/Container';
 import { MoviesList } from '../components/MoviesList';
 
