@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Container, Header, Logo, Link } from './SharedLayouts.styled';
+import { Container, Header, Logo, Link } from '../Styled/SharedLayouts.styled';
 import { Loader } from './Loader';
 
 export const SharedLayout = () => {

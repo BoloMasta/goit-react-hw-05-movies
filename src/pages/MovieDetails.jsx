@@ -25,7 +25,7 @@ import {
   Overview,
   Genres,
   ProuctionCompanies,
-} from 'components/MovieDetails.styled';
+} from 'Styled/MovieDetails.styled';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
