@@ -3,11 +3,13 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   margin: 0 auto;
+  padding: 0 16px;
 `;
 
 export const Header = styled.h2`
   font-size: 1.5rem;
   font-weight: 500;
+  margin: 1rem 0;
 `;
 
 export const List = styled.ul`

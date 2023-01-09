@@ -5,7 +5,7 @@ import {
   List,
   Item,
   LinkToDetails,
-} from '../Styled/MoviesList.styled';
+} from '../Styled/MoviesList';
 
 const MoviesList = ({ movies, label }) => {
   const location = useLocation();

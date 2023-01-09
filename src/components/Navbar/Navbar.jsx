@@ -1,5 +1,5 @@
 import css from './Navbar.module.scss';
-import { StyledNavLink, StyledLogoNavLink } from 'Styled/App.styled';
+import { StyledNavLink, StyledLogoNavLink } from 'Styled/App';
 
 import Container from 'components/Container/Container';
 

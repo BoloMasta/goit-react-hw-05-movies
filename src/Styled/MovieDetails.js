@@ -18,6 +18,10 @@ export const MovieCard = styled.div`
   justify-content: flex-start;
   width: calc(100% - 30px);
   height: 100%;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const Poster = styled.img`
@@ -25,6 +29,11 @@ export const Poster = styled.img`
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   align-self: flex-start;
+
+  @media screen and (max-width: 768px) {
+    max-height: 450px;
+    align-self: center;
+  }
 `;
 
 export const Info = styled.div`
@@ -33,6 +42,10 @@ export const Info = styled.div`
   justify-content: center;
   align-self: flex-start;
   padding: 10px 20px;
+
+  @media screen and (max-width: 768px) {
+    padding: 10px 0;
+  }
 `;
 
 export const Title = styled.h2`
@@ -53,7 +66,7 @@ export const Votes = styled.span`
 `;
 
 export const Header = styled.h3`
-  margin-bottom: 0;
+  margin: 15px 0 5px 0;
   font-size: 1.5rem;
   font-weight: 500;
 `;

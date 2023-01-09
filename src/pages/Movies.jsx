@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useEffect } from 'react';
+import { Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
 
 import { SearchBox } from 'components/SearchBox';
 import MoviesList from 'components/MoviesList';
@@ -46,7 +48,6 @@ const Movies = () => {
 
   return (
     <>
-      <h1>Movies</h1>
       <SearchBox
         value={movieName}
         onChange={updateQueryString}
@@ -56,6 +57,10 @@ const Movies = () => {
       {error && <h1>Something went wrong. Try again later.</h1>}
       {movies.length > 0 && <MoviesList movies={movies} />}
       {noResults && <h2>No results found</h2>}
+
+      <Suspense fallback={<div>Loading subpage...</div>}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };

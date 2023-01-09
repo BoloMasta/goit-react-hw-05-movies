@@ -1,5 +1,6 @@
 .AdditionalInformation {
-  width: calc(100% - 30px);
+  width: 100%;
+  margin: 16px 0;
 
   &__title {
     font-size: 1.5rem;
@@ -15,7 +16,6 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    margin-top: 10px;
   }
 
   &__item {

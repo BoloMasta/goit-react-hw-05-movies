@@ -1,6 +1,8 @@
 import Parser from 'html-react-parser';
 import { useParams, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 
 // import { Button } from 'components/SharedLayouts.styled';
@@ -25,7 +27,7 @@ import {
   Overview,
   Genres,
   ProuctionCompanies,
-} from 'Styled/MovieDetails.styled';
+} from 'Styled/MovieDetails';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -150,6 +152,10 @@ const MovieDetails = () => {
       </MovieCard>
 
       <AdditionalInformation />
+
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </Wrapper>
 
     // <Container>

@@ -1,4 +1,4 @@
-import { Wrapper, Icon } from '../Styled/Button.styled';
+import { Wrapper, Icon } from '../Styled/Button';
 
 const Button = ({ label, icon }) => (
   <Wrapper>

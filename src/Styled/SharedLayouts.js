@@ -25,6 +25,7 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  padding: 0 16px;
   gap: 12px;
   height: 5rem;
   overflow: visible;
