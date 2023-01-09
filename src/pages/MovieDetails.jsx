@@ -1,14 +1,10 @@
 import Parser from 'html-react-parser';
-import { useParams, useLocation } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { Suspense } from 'react';
-import { Outlet } from 'react-router-dom';
-// import { Link } from 'react-router-dom';
+import { useParams, useLocation, Outlet } from 'react-router-dom';
+import { useState, useEffect, Suspense } from 'react';
 
-import api from '../services/api';
 import { Loader } from '../components/Loader';
 import { Button } from 'components/Button';
-// import AdditionalInformation from '../components/AdditionalInformation/AdditionalInformation';
+import api from '../services/api';
 
 import {
   Wrapper,

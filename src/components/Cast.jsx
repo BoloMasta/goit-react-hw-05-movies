@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+
 import { Loader } from 'components/Loader';
 import { Wrapper, List, Item, Image, Name, Character } from '../Styled/Cast';
-
 import api from 'services/api';
 
 const Cast = () => {
@@ -28,12 +28,12 @@ const Cast = () => {
 
   return (
     <>
+      {isLoading && <Loader />}
+      {error && <h2>Something went wrong. Try again later.</h2>}
       {cast.length === 0 && !isLoading ? (
         <h2>We don't have any cast for this movie.</h2>
       ) : (
         <Wrapper>
-          {isLoading && <Loader />}
-          {error && <h2>Something went wrong. Try again later.</h2>}
           <List>
             {cast.map(({ id, profile_path, name, character }) => (
               <Item key={id}>

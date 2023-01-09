@@ -1,8 +1,5 @@
-import { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import { useEffect } from 'react';
-import { Suspense } from 'react';
-import { Outlet } from 'react-router-dom';
+import { useState, useEffect, Suspense } from 'react';
+import { useSearchParams, Outlet } from 'react-router-dom';
 
 import { SearchBox } from 'components/SearchBox';
 import { MoviesList } from 'components/MoviesList';
