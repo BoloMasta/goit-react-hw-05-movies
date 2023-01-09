@@ -4,12 +4,20 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   margin: 0 auto;
   padding: 0 16px;
+
+  @media screen and (max-width: 768px) {
+    padding: 0 8px;
+  }
 `;
 
 export const Header = styled.h2`
   font-size: 1.5rem;
   font-weight: 500;
   margin: 1rem 0;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.2rem;
+  }
 `;
 
 export const List = styled.ul`
@@ -27,6 +35,10 @@ export const Item = styled.li`
       )
       border-box;
   border-bottom: 1px solid transparent;
+
+  @media screen and (max-width: 768px) {
+    font-size: 0.8rem;
+  }
 `;
 
 export const LinkToDetails = styled(Link)`

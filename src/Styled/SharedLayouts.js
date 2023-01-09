@@ -55,6 +55,10 @@ export const Header = styled.header`
 
 export const Logo = styled.p`
   font-size: 2rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.8rem;
+  }
 `;
 
 export const Link = styled(NavLink)`
@@ -81,5 +85,9 @@ export const Link = styled(NavLink)`
     position: absolute;
     bottom: -5px;
     left: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.2rem;
   }
 `;

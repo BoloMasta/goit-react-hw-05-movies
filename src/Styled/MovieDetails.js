@@ -5,6 +5,10 @@ export const Wrapper = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+
+  @media screen and (max-width: 768px) {
+    padding: 0 5px;
+  }
 `;
 
 export const BackButton = styled(Link)`
@@ -16,7 +20,7 @@ export const MovieCard = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: calc(100% - 30px);
+  width: 100%;
   height: 100%;
 
   @media screen and (max-width: 768px) {
@@ -52,35 +56,59 @@ export const Title = styled.h2`
   margin-top: 10px;
   font-size: 2rem;
   font-weight: 700;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 export const Score = styled.div`
   font-size: 1.5rem;
   font-weight: 500;
   margin: 10px 0;
   display: flex;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.2rem;
+  }
 `;
 export const Votes = styled.span`
   margin: 5px 0;
   font-size: 1rem;
   font-weight: 400;
+
+  @media screen and (max-width: 768px) {
+    font-size: 0.8rem;
+  }
 `;
 
 export const Header = styled.h3`
   margin: 15px 0 5px 0;
   font-size: 1.5rem;
   font-weight: 500;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.2rem;
+  }
 `;
 
 export const Overview = styled.p`
   margin: 5px 0;
   font-size: 1rem;
   font-weight: 400;
+
+  @media screen and (max-width: 768px) {
+    font-size: 0.8rem;
+  }
 `;
 
 export const Genres = styled.p`
   margin: 5px 0;
   font-size: 1rem;
   font-weight: 400;
+
+  @media screen and (max-width: 768px) {
+    font-size: 0.8rem;
+  }
 `;
 
 export const ProuctionCompanies = styled.div`

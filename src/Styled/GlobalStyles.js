@@ -15,8 +15,7 @@ export const GlobalStyles = createGlobalStyle`
         -moz-osx-font-smoothing: grayscale;
         font-size: 16px;
         background-color: #fff;
-        color: #000;
-        }
+        color: #000;       
 
     code {
         font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
