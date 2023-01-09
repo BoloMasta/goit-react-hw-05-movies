@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 
 import api from '../services/api';
 import { Loader } from '../components/Loader';
-import Container from '../components/Container/Container';
 import { MoviesList } from '../components/MoviesList';
 
 const Home = () => {
@@ -26,11 +25,11 @@ const Home = () => {
   }, []);
 
   return (
-    <Container>
+    <>
       {isLoading && <Loader />}
       {error && <h1>Something went wrong. Try again later.</h1>}
       <MoviesList movies={movies} label="Trending movies:" />
-    </Container>
+    </>
   );
 };
 

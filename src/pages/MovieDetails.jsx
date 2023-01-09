@@ -8,7 +8,7 @@ import { Outlet } from 'react-router-dom';
 import api from '../services/api';
 import { Loader } from '../components/Loader';
 import { Button } from 'components/Button';
-import AdditionalInformation from '../components/AdditionalInformation/AdditionalInformation';
+// import AdditionalInformation from '../components/AdditionalInformation/AdditionalInformation';
 
 import {
   Wrapper,
@@ -23,6 +23,8 @@ import {
   Overview,
   Genres,
   ProuctionCompanies,
+  ExtraButtonsList,
+  ExtraButton,
 } from 'Styled/MovieDetails';
 
 const MovieDetails = () => {
@@ -134,7 +136,18 @@ const MovieDetails = () => {
         </Info>
       </MovieCard>
 
-      <AdditionalInformation />
+      <ExtraButtonsList>
+        <li>
+          <ExtraButton to="cast">
+            <Button label="Cast" icon="cast" />
+          </ExtraButton>
+        </li>
+        <li>
+          <ExtraButton to="reviews">
+            <Button label="Reviews" icon="review" />
+          </ExtraButton>
+        </li>
+      </ExtraButtonsList>
 
       <Suspense fallback={<Loader />}>
         <Outlet />

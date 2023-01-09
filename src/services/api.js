@@ -41,6 +41,7 @@ class FetchApiMovies {
       const { data } = await axios.get(
         `/movie/${movieId}/credits?api_key=${apiKey}`
       );
+      // console.log(data.cast);
       return data;
     } catch (error) {
       console.log(error);

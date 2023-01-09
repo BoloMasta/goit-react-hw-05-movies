@@ -120,3 +120,16 @@ export const ProuctionCompanies = styled.div`
   list-style: none;
   margin-top: 10px;
 `;
+
+export const ExtraButtonsList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  list-style: none;
+  margin: 10px 0;
+`;
+
+export const ExtraButton = styled(Link)`
+  text-decoration: none;
+`;
