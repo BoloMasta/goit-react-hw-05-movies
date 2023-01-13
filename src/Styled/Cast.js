@@ -17,6 +17,7 @@ export const Wrapper = styled.div`
   }
 
   ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: #f5f5f5;
     border-radius: 10px;
@@ -48,6 +49,7 @@ export const List = styled.ul`
 export const Item = styled.li`
   display: flex;
   flex-direction: row;
+  height: 200px;
   gap: 10px;
   width: 100%;
   margin-bottom: 10px;
