@@ -1,6 +1,8 @@
 import Parser from 'html-react-parser';
 import { useParams, useLocation, Outlet } from 'react-router-dom';
 import { useState, useEffect, Suspense } from 'react';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 import { Loader } from '../components/Loader';
 import { Button } from 'components/Button';
@@ -28,6 +30,10 @@ const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState({});
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isImageLoaded, setIsImageLoaded] = useState({
+    loaded: false,
+    maxHeight: 0,
+  });
 
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
@@ -45,7 +51,7 @@ const MovieDetails = () => {
       }
     };
     getMovieDetails();
-  }, [movieId, location, backLinkHref]);
+  }, [movieId]);
 
   const {
     poster_path,
@@ -72,82 +78,88 @@ const MovieDetails = () => {
       if (company.logo_path) {
         return `<img src="https://image.tmdb.org/t/p/w300${company.logo_path}" alt="${company.name}" style="max-height: 50px; max-width: 150px; padding: 10px 20px"/>`;
       } else {
-        return ' ';
+        return '';
       }
     })
     .join('');
 
+  const handleImageLoaded = () => {
+    setIsImageLoaded({ loaded: true, maxHeight: 500 });
+  };
+
   return (
     <Wrapper>
-      {isLoading && <Loader />}
-      {error && <h1>Something went wrong. Try again later.</h1>}
+      {error && <h1>Something went wrong. Please try again later.</h1>}
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <BackButton to={backLinkHref}>
+            <Button label="Go back" icon="left_arrow" />
+          </BackButton>
+          <MovieCard>
+            {!isImageLoaded.loaded && <Skeleton width={333} height={500} />}
+            <Poster
+              src={posterUrl}
+              alt={title}
+              onLoad={handleImageLoaded}
+              height={isImageLoaded.maxHeight}
+            />
 
-      <BackButton to={backLinkHref}>
-        <Button label="Go back" icon="left_arrow" />
-      </BackButton>
+            <Info>
+              <Title>
+                {title}
+                {release_date && <span> ({release_date.slice(0, 4)})</span>}
+              </Title>
 
-      <MovieCard>
-        <Poster src={posterUrl} alt={title} />
-        <Info>
-          <Title>
-            {title}
-            {release_date && <span> ({release_date.slice(0, 4)})</span>}
-          </Title>
+              <Score>
+                {vote_count > 0 ? (
+                  <>
+                    User score: {Math.round(vote_average * 10)}%&ensp;
+                    <Votes>
+                      ({vote_count} {vote_count === 1 ? 'vote' : 'votes'})
+                    </Votes>
+                  </>
+                ) : (
+                  'No votes yet'
+                )}
+              </Score>
 
-          {vote_count > 0 ? (
-            <Score>
-              User score: {Math.round(vote_average * 10)}%&ensp;
-              <Votes>
-                ({vote_count} {vote_count === 1 ? 'vote' : 'votes'})
-              </Votes>
-            </Score>
-          ) : (
-            <Score>No votes yet</Score>
-          )}
+              <Header>Overview</Header>
+              <Overview>
+                {overview !== '' ? overview : 'No overview provided'}
+              </Overview>
 
-          <Header>Overview</Header>
-          {overview !== '' ? (
-            <Overview>{overview}</Overview>
-          ) : (
-            <Overview>No overview provided</Overview>
-          )}
+              <Header>Genres</Header>
+              <Genres>
+                {genresList !== '' ? genresList : 'No genres provided'}
+              </Genres>
 
-          <Header>Genres</Header>
-          {genresList !== '' ? (
-            <Genres>{genresList}</Genres>
-          ) : (
-            <Genres>No genres provided</Genres>
-          )}
-
-          <Header>Production companies</Header>
-          {productionCompaniesList !== '' ? (
-            <ProuctionCompanies>
-              {Parser(productionCompaniesList.toString())}
-            </ProuctionCompanies>
-          ) : (
-            <ProuctionCompanies>
-              No production companies provided
-            </ProuctionCompanies>
-          )}
-        </Info>
-      </MovieCard>
-
-      <ExtraButtonsList>
-        <li>
-          <ExtraButton to="cast">
-            <Button label="Cast" icon="cast" />
-          </ExtraButton>
-        </li>
-        <li>
-          <ExtraButton to="reviews">
-            <Button label="Reviews" icon="review" />
-          </ExtraButton>
-        </li>
-      </ExtraButtonsList>
-
-      <Suspense fallback={<Loader />}>
-        <Outlet />
-      </Suspense>
+              <Header>Production companies</Header>
+              <ProuctionCompanies>
+                {productionCompaniesList !== ''
+                  ? Parser(productionCompaniesList.toString())
+                  : 'No production companies provided'}
+              </ProuctionCompanies>
+            </Info>
+          </MovieCard>
+          <ExtraButtonsList>
+            <li>
+              <ExtraButton to="cast">
+                <Button label="Cast" icon="cast" />
+              </ExtraButton>
+            </li>
+            <li>
+              <ExtraButton to="reviews">
+                <Button label="Reviews" icon="review" />
+              </ExtraButton>
+            </li>
+          </ExtraButtonsList>
+          <Suspense fallback={<Loader />}>
+            <Outlet />
+          </Suspense>
+        </>
+      )}
     </Wrapper>
   );
 };

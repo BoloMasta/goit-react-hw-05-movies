@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
-import { Loader } from '../components/Loader';
+import { Wrapper, Header } from '../Styled/Home';
 import { MoviesList } from '../components/MoviesList';
 import api from '../services/api';
 
@@ -25,11 +27,20 @@ const Home = () => {
   }, []);
 
   return (
-    <>
-      {isLoading && <Loader />}
+    <Wrapper>
+      <Header>Trending movies:</Header>
+      {isLoading ? (
+        <Skeleton
+          count={15}
+          style={{ height: 30, width: 300, marginTop: 10 }}
+        />
+      ) : (
+        <>
+          <MoviesList movies={movies} />
+        </>
+      )}
       {error && <h1>Something went wrong. Try again later.</h1>}
-      <MoviesList movies={movies} label="Trending movies:" />
-    </>
+    </Wrapper>
   );
 };
 

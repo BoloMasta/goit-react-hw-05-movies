@@ -1,9 +1,10 @@
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams, Outlet } from 'react-router-dom';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 import { SearchBox } from 'components/SearchBox';
 import { MoviesList } from 'components/MoviesList';
-import { Loader } from 'components/Loader';
 import api from 'services/api';
 
 const Movies = () => {
@@ -15,7 +16,6 @@ const Movies = () => {
   const movieName = searchParams.get('query') || '';
 
   const updateQueryString = e => {
-    // setMovieName(e.target.value);
     setNoResults(false);
     setSearchParams({ query: e.target.value });
   };
@@ -43,10 +43,17 @@ const Movies = () => {
   return (
     <>
       <SearchBox value={movieName} onChange={updateQueryString} />
-      {isLoading && <Loader />}
+
       {error && <h1>Something went wrong. Try again later.</h1>}
-      {movies.length > 0 && <MoviesList movies={movies} />}
       {noResults && <h2>No results found</h2>}
+      {isLoading ? (
+        <Skeleton
+          count={15}
+          style={{ height: 30, width: 300, marginTop: 10 }}
+        />
+      ) : (
+        <MoviesList movies={movies} />
+      )}
 
       <Suspense fallback={<div>Loading subpage...</div>}>
         <Outlet />

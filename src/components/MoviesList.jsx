@@ -1,19 +1,12 @@
 import { useLocation } from 'react-router-dom';
 
-import {
-  Wrapper,
-  Header,
-  List,
-  Item,
-  LinkToDetails,
-} from '../Styled/MoviesList';
+import { Wrapper, List, Item, LinkToDetails } from '../Styled/MoviesList';
 
-export const MoviesList = ({ movies, label }) => {
+export const MoviesList = ({ movies }) => {
   const location = useLocation();
 
   return (
     <Wrapper>
-      <Header>{label}</Header>
       <List>
         {movies.map(movie => (
           <Item key={movie.id}>

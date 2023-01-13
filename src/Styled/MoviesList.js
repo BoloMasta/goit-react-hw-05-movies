@@ -10,16 +10,6 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Header = styled.h2`
-  font-size: 1.5rem;
-  font-weight: 500;
-  margin: 1rem 0;
-
-  @media screen and (max-width: 768px) {
-    font-size: 1.2rem;
-  }
-`;
-
 export const List = styled.ul`
   list-style: outside '🎞️';
 `;
