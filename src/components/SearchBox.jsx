@@ -1,13 +1,17 @@
-import { Wrapper, Header, Input, Button, Icon } from '../Styled/SearchBox';
+import { DebounceInput } from 'react-debounce-input';
+import { Wrapper, Header, Icon } from '../Styled/SearchBox';
 
-export const SearchBox = ({ value, onChange, handleSubmit }) => {
+export const SearchBox = ({ value, onChange }) => {
   return (
     <Wrapper>
       <Header>Search movies</Header>
-      <Input type="text" value={value} onChange={onChange} />
-      <Button type="submit" onClick={handleSubmit}>
-        <Icon />
-      </Button>
+      <DebounceInput
+        debounceTimeout={500}
+        value={value}
+        onChange={onChange}
+        placeholder="type here"
+      />
+      <Icon />
     </Wrapper>
   );
 };

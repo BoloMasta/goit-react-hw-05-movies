@@ -7,20 +7,17 @@ import { Loader } from 'components/Loader';
 import api from 'services/api';
 
 const Movies = () => {
-  const [movieName, setMovieName] = useState('');
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const [noResults, setNoResults] = useState(false);
+  const movieName = searchParams.get('query') || '';
 
   const updateQueryString = e => {
-    setMovieName(e.target.value);
-  };
-
-  const handleSubmit = e => {
+    // setMovieName(e.target.value);
     setNoResults(false);
-    setSearchParams({ query: movieName });
+    setSearchParams({ query: e.target.value });
   };
 
   useEffect(() => {
@@ -45,11 +42,7 @@ const Movies = () => {
 
   return (
     <>
-      <SearchBox
-        value={movieName}
-        onChange={updateQueryString}
-        handleSubmit={handleSubmit}
-      />
+      <SearchBox value={movieName} onChange={updateQueryString} />
       {isLoading && <Loader />}
       {error && <h1>Something went wrong. Try again later.</h1>}
       {movies.length > 0 && <MoviesList movies={movies} />}
