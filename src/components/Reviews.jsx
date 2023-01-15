@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
-import { Loader } from 'components/Loader';
 import { Wrapper, List, Item, Author, Content } from '../Styled/Reviews';
 import api from 'services/api';
 
@@ -28,11 +29,27 @@ const Reviews = () => {
 
   return (
     <>
-      {isLoading && <Loader />}
       {error && <h2>Something went wrong. Try again later.</h2>}
-      {reviews.length === 0 && !isLoading ? (
+      {reviews.length === 0 && !isLoading && (
         <h2>We don't have any reviews for this movie.</h2>
-      ) : (
+      )}
+
+      {isLoading && (
+        <Wrapper>
+          <List>
+            <Item>
+              <Author>
+                <Skeleton width={100} />
+              </Author>
+              <Content>
+                <Skeleton width={500} count={3} />
+              </Content>
+            </Item>
+          </List>
+        </Wrapper>
+      )}
+
+      {!isLoading && reviews.length > 0 && !error && (
         <Wrapper>
           <List>
             {reviews.map(({ id, author, content }) => (

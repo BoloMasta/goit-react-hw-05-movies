@@ -32,7 +32,7 @@ const Home = () => {
       {isLoading ? (
         <Skeleton
           count={15}
-          style={{ height: 30, width: 300, marginTop: 10 }}
+          style={{ height: 30, width: 300, marginTop: 15 }}
         />
       ) : (
         <>

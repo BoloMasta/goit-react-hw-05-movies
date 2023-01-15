@@ -17,6 +17,7 @@ export const GlobalStyles = createGlobalStyle`
         background-color: #fff;
         color: #000;
         overflow-y: scroll;    
+        overflow: overlay;
     }  
 
     code {
@@ -26,20 +27,18 @@ export const GlobalStyles = createGlobalStyle`
 
     ::-webkit-scrollbar-track
     {
-        box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-        background-color: #F5F5F5;
-        
+        background-color: transparent;
     }
 
     ::-webkit-scrollbar
     {
         width: 10px;
-        background-color: #F5F5F5;
+        background-color: transparent;
     }
 
     ::-webkit-scrollbar-thumb
     {
+        border-radius: 10px;
         background-image: linear-gradient(
             225deg,
             #2b86c5 0%,
