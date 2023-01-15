@@ -24,7 +24,7 @@ const Home = () => {
       }
     };
     getMovies();
-    console.log('test23456');
+    console.log('test234567');
   }, []);
 
   return (
