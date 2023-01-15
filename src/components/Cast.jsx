@@ -1,15 +1,29 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useReducer } from 'react';
 import { useParams } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
-// import { Loader } from 'components/Loader';
 import { Wrapper, List, Item, Image, Name, Character } from '../Styled/Cast';
 import api from 'services/api';
 
+const castReducer = (state, action) => {
+  switch (action.type) {
+    case 'SET_CAST':
+      return action.payload;
+    case 'SET_LOADED':
+      return state.map(castMember =>
+        castMember.id === action.payload
+          ? { ...castMember, loaded: true }
+          : castMember
+      );
+    default:
+      return state;
+  }
+};
+
 const Cast = () => {
   const { movieId } = useParams();
-  const [cast, setCast] = useState([]);
+  const [cast, dispatch] = useReducer(castReducer, []);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -18,7 +32,11 @@ const Cast = () => {
     const getCast = async () => {
       try {
         const { cast } = await api.fetchMovieCast(movieId);
-        setCast(cast);
+        const castWithLoadedProp = cast.map(castMember => ({
+          ...castMember,
+          loaded: false,
+        }));
+        dispatch({ type: 'SET_CAST', payload: castWithLoadedProp });
       } catch (error) {
         setError(error);
       } finally {
@@ -28,24 +46,15 @@ const Cast = () => {
     getCast();
   }, [movieId]);
 
+  const handleCastImageLoaded = e => {
+    const castMemberId = Number(e.target.dataset.id);
+    dispatch({ type: 'SET_LOADED', payload: castMemberId });
+  };
+
   return (
     <>
       {error && <h2>Something went wrong. Try again later.</h2>}
       {isLoading ? (
-        // <table style={{ borderSpacing: 30 }}>
-        //   <tr>
-        //     <td>
-        //       <Skeleton width={150} height={200} inline={true} />
-        //     </td>
-        //     <td>
-        //       <Skeleton width={200} height={50} inline={true} />
-        //     </td>
-        //     <td>
-        //       <Skeleton width={400} height={50} inline={true} />
-        //     </td>
-        //   </tr>
-        // </table>
-
         <Wrapper>
           <List>
             <Item>
@@ -66,8 +75,9 @@ const Cast = () => {
           ) : (
             <Wrapper>
               <List>
-                {cast.map(({ id, profile_path, name, character }) => (
+                {cast.map(({ id, profile_path, name, character, loaded }) => (
                   <Item key={id}>
+                    {!loaded && <Skeleton width={150} height={195} />}
                     <Image
                       src={
                         profile_path
@@ -75,6 +85,10 @@ const Cast = () => {
                           : 'https://dummyimage.com/200x300/2a2a2a/ffffff&text=No+image'
                       }
                       alt={name}
+                      data-id={id}
+                      onLoad={handleCastImageLoaded}
+                      height={loaded ? 200 : 0}
+                      width={loaded ? 150 : 0}
                     />
                     <Name>{name}</Name>
                     <Character>Character: {character}</Character>

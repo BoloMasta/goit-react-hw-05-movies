@@ -7,6 +7,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import { Loader } from '../components/Loader';
 import { Button } from 'components/Button';
 import api from '../services/api';
+import defaultPoster from 'images/default_poster.jpg';
 
 import {
   Wrapper,
@@ -64,7 +65,6 @@ const MovieDetails = () => {
     production_companies,
   } = movieDetails || {};
 
-  const defaultPoster = require('images/default_poster.jpg');
   const genresList = genres?.map(genre => genre.name).join(', ');
   const posterUrl =
     poster_path === null

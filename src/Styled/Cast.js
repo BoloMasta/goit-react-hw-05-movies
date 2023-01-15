@@ -71,10 +71,8 @@ export const Item = styled.li`
 `;
 
 export const Image = styled.img`
-  width: 100%;
-  max-width: 150px;
-  height: 100%;
-  max-height: 200px;
+  width: ${props => props.width};
+  height: ${props => props.height};
   border-radius: 5px;
 `;
 
