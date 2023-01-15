@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// const apiKey = process.env.REACT_APP_API_KEY;
-const apiKey = `${secrets.REACT_APP_API_KEY}`;
+const apiKey = '92be59e0090ddfe5570b8756c403476a';
+// const apiKey = `${secrets.REACT_APP_API_KEY}`;
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
 class FetchApiMovies {
