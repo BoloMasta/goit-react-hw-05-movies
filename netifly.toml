@@ -8,5 +8,3 @@ status = 200
   publish="/build"
   base = ""
 
-[permalinks]
-  movie = "/:movieId/" 
