@@ -7,3 +7,6 @@ status = 200
   command = "npm run build"
   publish="/build"
   base = ""
+
+[permalinks]
+  movie = "/:movieId/" 
