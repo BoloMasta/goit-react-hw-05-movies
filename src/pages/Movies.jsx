@@ -5,6 +5,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 
 import { SearchBox } from 'components/SearchBox';
 import { MoviesList } from 'components/MoviesList';
+import { ErrorBoundary } from 'components/ErrorBoundary';
 import api from 'services/api';
 
 const Movies = () => {
@@ -55,9 +56,11 @@ const Movies = () => {
         <MoviesList movies={movies} />
       )}
 
-      <Suspense fallback={<div>Loading subpage...</div>}>
-        <Outlet />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<div>Loading subpage...</div>}>
+          <Outlet />
+        </Suspense>
+      </ErrorBoundary>
     </>
   );
 };

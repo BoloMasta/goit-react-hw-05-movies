@@ -6,6 +6,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 
 import { Loader } from '../components/Loader';
 import { Button } from 'components/Button';
+import { ErrorBoundary } from 'components/ErrorBoundary';
 import api from '../services/api';
 import defaultPoster from 'images/default_poster.jpg';
 
@@ -155,9 +156,12 @@ const MovieDetails = () => {
               </ExtraButton>
             </li>
           </ExtraButtonsList>
-          <Suspense fallback={<Loader />}>
-            <Outlet />
-          </Suspense>
+
+          <ErrorBoundary>
+            <Suspense fallback={<Loader />}>
+              <Outlet />
+            </Suspense>
+          </ErrorBoundary>
         </>
       )}
     </Wrapper>
