@@ -5,3 +5,40 @@
   publish="/build"
   base = ""
 
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[build.environment]
+  NODE_ENV = "production"
+
+[build.environment.development]
+  NODE_ENV = "development"
+
+[build.environment.staging]
+  NODE_ENV = "staging"
+
+[build.environment.production]
+  NODE_ENV = "production"
+
+[dev]
+  port = 3000
+  targetPort = 3000
+  autoLaunch = true
+
+[dev.environment]
+  NODE_ENV = "development"
+
+[dev.environment.development]
+  NODE_ENV = "development"
+
+[dev.environment.staging]
+  NODE_ENV = "staging"
+
+[dev.environment.production]
+  NODE_ENV = "production"
+
+
+
+
