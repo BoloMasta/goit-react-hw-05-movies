@@ -8,7 +8,7 @@ import { GlobalStyles } from 'Styled/GlobalStyles';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Router basename="/index.html">
+    <Router>
       <GlobalStyles />
       <App />
     </Router>
