@@ -8,7 +8,7 @@ export const SearchBox = ({ value, onChange }) => {
       <DebounceInput
         debounceTimeout={500}
         value={value}
-        onChange={onChange}
+        onChange={e => onChange(e.target.value)}
         placeholder="type here"
       />
       <Icon />
