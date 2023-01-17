@@ -14,7 +14,7 @@ export const useRequest = (path, query) => {
     : baseUrl + path + '?api_key=' + apiKey;
   const { data, error } = useSwr(url);
 
-  console.log(data);
+  // console.log(data);
 
   return { data, error };
 };

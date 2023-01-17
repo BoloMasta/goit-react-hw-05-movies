@@ -6,6 +6,7 @@ export const SearchBox = ({ value, onChange }) => {
     <Wrapper>
       <Header>Search movies</Header>
       <DebounceInput
+        type="text"
         debounceTimeout={500}
         value={value}
         onChange={e => onChange(e.target.value)}

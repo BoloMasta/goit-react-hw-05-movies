@@ -11,30 +11,30 @@ import { useRequest } from '../services/useRequest';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const movieName = searchParams.get('query') ?? { query: '' };
-  const { data, error } = useRequest('/search/movie', movieName);
-
-  // const updateQueryString = e => {
-  //   setSearchParams({ query: e.target.value });
-  //   console.log(searchParams.get('query'));
-  // };
+  const movieName = searchParams.get('query') || '';
+  const { data, error } = useRequest(
+    '/search/movie',
+    movieName || { query: '' }
+  );
 
   const updateQueryString = query => {
-    const nextParams = query !== '' ? { query } : {};
-    console.log(nextParams);
+    const nextParams = query !== '' && { query };
     setSearchParams(nextParams);
   };
 
-  if (error) return <div>failed to load</div>;
-  if (!data)
-    return (
-      <Skeleton count={15} style={{ height: 30, width: 300, marginTop: 15 }} />
-    );
-
   return (
     <>
-      <SearchBox value={movieName.query} onChange={updateQueryString} />
-      <MoviesList movies={data.results} />
+      <SearchBox value={movieName} onChange={updateQueryString} />
+      {error && <h2>failed to load</h2>}
+      {!data ? (
+        <Skeleton
+          count={15}
+          style={{ height: 30, width: 300, marginTop: 15 }}
+        />
+      ) : (
+        <MoviesList movies={data.results} />
+      )}
+      {data?.total_results === 0 && movieName && <h2>No results found</h2>}
     </>
   );
 };
