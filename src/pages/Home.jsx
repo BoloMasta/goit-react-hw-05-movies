@@ -11,16 +11,27 @@ import { useRequest } from '../services/useRequest';
 const Home = () => {
   const { data, error } = useRequest(`/trending/movie/day`);
 
-  if (error) return <div>failed to load</div>;
-  if (!data)
-    return (
-      <Skeleton count={15} style={{ height: 30, width: 300, marginTop: 15 }} />
-    );
+  // if (error) return <div>failed to load</div>;
+  // if (!data)
+  //   return (
+  //     <Skeleton count={15} style={{ height: 30, width: 300, marginTop: 15 }} />
+  //   );
 
   return (
     <Wrapper>
+      {error && <h2>Something went wrong. Try again later.</h2>}
       <Header>Trending movies:</Header>
-      <MoviesList movies={data.results} />
+      {!data ? (
+        <Skeleton
+          count={15}
+          style={{ height: 30, width: 300, marginTop: 15 }}
+        />
+      ) : (
+        <MoviesList movies={data.results} />
+      )}
+
+      {/* <Header>Trending movies:</Header>
+      <MoviesList movies={data.results} /> */}
     </Wrapper>
   );
 
