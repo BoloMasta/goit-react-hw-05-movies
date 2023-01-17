@@ -69,6 +69,7 @@ const MovieDetails = () => {
           </BackButton>
           <MovieCard>
             {!isImageLoaded.loaded && <Skeleton width={333} height={500} />}
+
             <Poster
               src={
                 data.poster_path === null
@@ -109,6 +110,14 @@ const MovieDetails = () => {
               </Genres>
               <Header>Production companies</Header>
               <ProuctionCompanies>
+                {/* {productionCompaniesList.map(logo => {
+                  return (
+                    <Skeleton
+                      style={{ width: 150, height: 50, marginRight: 30 }}
+                    />
+                  );
+                })} */}
+
                 {productionCompaniesList.length > 0
                   ? productionCompaniesList
                   : 'No production companies provided'}
