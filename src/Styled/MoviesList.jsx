@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import filmTape from 'images/film-tape.png';
 
 export const Wrapper = styled.div`
   margin: 0 auto;
@@ -11,7 +12,7 @@ export const Wrapper = styled.div`
 `;
 
 export const List = styled.ul`
-  list-style: outside '🎞️';
+  list-style: none;
 `;
 
 export const Item = styled.li`
@@ -25,6 +26,17 @@ export const Item = styled.li`
       )
       border-box;
   border-bottom: 1px solid transparent;
+  position: relative;
+
+  &::before {
+    content: '';
+    background-image: url(${filmTape});
+    background-size: cover;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    left: -25px;
+  }
 
   @media screen and (max-width: 768px) {
     font-size: 0.8rem;

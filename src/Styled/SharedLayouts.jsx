@@ -70,7 +70,8 @@ export const Link = styled(NavLink)`
   position: relative;
   margin-left: 30px;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: #ff3cac;
     text-shadow: 3px 3px 20px #ff3cac, -2px 1px 30px #ff3cac;
   }
