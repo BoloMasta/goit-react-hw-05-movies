@@ -12,6 +12,7 @@ export const MoviesList = ({ movies }) => {
             <LinkToDetails
               to={`/movies/${movie.id}`}
               state={{ from: location }}
+              cover={movie.poster_path}
             >
               {movie.title}
             </LinkToDetails>

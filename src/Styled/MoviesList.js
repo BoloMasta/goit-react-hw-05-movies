@@ -53,4 +53,20 @@ export const LinkToDetails = styled(Link)`
   &:focus {
     color: #ff3cac;
   }
+
+  &:hover::after,
+  &:focus::after {
+    content: '';
+    background-image: url('https://image.tmdb.org/t/p/w500$', {props => props.cover})
+     
+    width: 150px;
+    height: 200px;
+    background: #ff3cac;
+    display: block;
+    border-radius: 2px;
+    position: absolute;
+    top: -100px;
+    left: 350px;
+    z-index: 1;
+  }
 `;
