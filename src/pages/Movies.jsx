@@ -1,16 +1,20 @@
+import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
 import { SearchBox } from 'components/SearchBox';
 import { MoviesList } from 'components/MoviesList';
+import { PageButtons } from 'components/PageButtons';
 import { useRequest } from '../services/useRequest';
 
 const Movies = () => {
+  const [page, setPage] = useState(1);
   const [searchParams, setSearchParams] = useSearchParams();
   const movieName = searchParams.get('query') || '';
   const { data, error } = useRequest(
     '/search/movie',
+    page,
     movieName || { query: '' }
   );
 
@@ -31,7 +35,18 @@ const Movies = () => {
       ) : data?.total_results === 0 && movieName && !error ? (
         <h2>No results found</h2>
       ) : (
-        <MoviesList movies={data.results} />
+        <>
+          <MoviesList movies={data.results} />
+
+          {data.total_pages > 1 && (
+            <PageButtons
+              page={page}
+              totalPages={data.total_pages}
+              onPrevPage={() => setPage(page - 1)}
+              onNextPage={() => setPage(page + 1)}
+            />
+          )}
+        </>
       )}
     </>
   );

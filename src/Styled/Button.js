@@ -26,20 +26,20 @@ export const Wrapper = styled.button`
   opacity: 0.8;
   min-width: 120px;
 
-  &:hover {
+  &:hover,
+  &:focus {
     opacity: 1;
   }
 
-  &__icon {
-    margin-right: 10px;
-    width: 25px;
-    height: 25px;
-    filter: grayscale(1) invert(1);
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
   }
 `;
 
 export const Icon = styled.img`
-  margin-right: 10px;
+  margin-right: ${props => (props.reverse === 'true' ? '0' : '10px')};
+  margin-left: ${props => (props.reverse === 'true' ? '10px' : '0')};
   width: 25px;
   height: 25px;
   filter: grayscale(1) invert(1);
