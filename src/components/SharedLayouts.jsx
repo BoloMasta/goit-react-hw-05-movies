@@ -9,11 +9,7 @@ export const SharedLayout = () => {
   return (
     <Container>
       <Header>
-        <Logo>
-          <span role="img" aria-label="camera icon">
-            📽️
-          </span>
-        </Logo>
+        <Logo />
         <nav>
           <Link to="/" end>
             Home

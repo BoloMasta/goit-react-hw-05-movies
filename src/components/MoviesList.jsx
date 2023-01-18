@@ -1,5 +1,4 @@
 import { useLocation } from 'react-router-dom';
-
 import { Wrapper, List, Item, LinkToDetails } from '../Styled/MoviesList';
 
 export const MoviesList = ({ movies }) => {

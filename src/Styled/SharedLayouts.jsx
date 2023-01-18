@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import logoImage from 'images/logo-camera.png';
 
 export const Background = styled.div`
   background-image: linear-gradient(
@@ -53,12 +54,11 @@ export const Header = styled.header`
   }
 `;
 
-export const Logo = styled.p`
-  font-size: 2rem;
-
-  @media screen and (max-width: 768px) {
-    font-size: 1.8rem;
-  }
+export const Logo = styled.div`
+  width: 50px;
+  height: 50px;
+  background-image: url(${logoImage});
+  background-size: cover;
 `;
 
 export const Link = styled(NavLink)`
