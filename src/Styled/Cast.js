@@ -54,6 +54,7 @@ export const Item = styled.li`
   gap: 10px;
   width: 100%;
   margin-bottom: 10px;
+  border-radius: 10px;
 
   &:last-child {
     margin-bottom: 0;
@@ -62,11 +63,11 @@ export const Item = styled.li`
   &:hover {
     background: linear-gradient(
       90deg,
-      rgba(255, 255, 255) 0%,
+      rgba(255, 255, 255, 0.5) 0%,
       rgba(255, 60, 172, 0.5) 15%,
       rgba(120, 75, 160, 0.5) 35%,
       rgba(43, 134, 197, 0.5) 45%,
-      rgba(255, 255, 255) 90%
+      rgba(255, 255, 255, 0.2) 90%
     );
   }
 `;

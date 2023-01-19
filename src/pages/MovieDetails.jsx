@@ -4,7 +4,6 @@ import { useState, Suspense } from 'react';
 import { useRequest } from '../services/useRequest';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-
 import { Loader } from '../components/Loader';
 import { Button } from 'components/Button';
 import defaultPoster from 'images/default_poster.jpg';
@@ -110,14 +109,6 @@ const MovieDetails = () => {
               </Genres>
               <Header>Production companies</Header>
               <ProuctionCompanies>
-                {/* {productionCompaniesList.map(logo => {
-                  return (
-                    <Skeleton
-                      style={{ width: 150, height: 50, marginRight: 30 }}
-                    />
-                  );
-                })} */}
-
                 {productionCompaniesList.length > 0
                   ? productionCompaniesList
                   : 'No production companies provided'}

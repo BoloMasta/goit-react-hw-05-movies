@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import background from 'images/background.jpg';
 
 export const Wrapper = styled.div`
   max-width: 1200px;
@@ -8,14 +9,27 @@ export const Wrapper = styled.div`
 
   &::before {
     content: '';
+    display: block;
+    background-color: rgb(255 255 255);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  &::after {
+    content: '';
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-image: ${props =>
-      props.backdrop &&
-      `url('https://image.tmdb.org/t/p/w500/${props.backdrop}')`};
+      props.backdrop
+        ? `url('https://image.tmdb.org/t/p/w500/${props.backdrop}')`
+        : `url(${background})`};
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

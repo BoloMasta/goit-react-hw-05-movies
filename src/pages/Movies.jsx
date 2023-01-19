@@ -39,7 +39,6 @@ const Movies = () => {
         ) : (
           <>
             <MoviesList movies={data.results} />
-
             {data.total_pages > 1 && (
               <PageButtons
                 page={page}

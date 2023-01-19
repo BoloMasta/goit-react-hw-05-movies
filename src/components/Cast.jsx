@@ -2,10 +2,8 @@ import { useEffect, useReducer } from 'react';
 import { useParams } from 'react-router-dom';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-
 import { Wrapper, List, Item, Image, Name, Character } from '../Styled/Cast';
 import { useRequest } from '../services/useRequest';
-// import api from 'services/api';
 
 const castReducer = (state, action) => {
   switch (action.type) {
