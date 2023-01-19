@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import filmTape from 'images/film-tape.png';
+import defaultPoster from 'images/default_poster.jpg';
 
 export const Wrapper = styled.div`
   margin: 0 auto;
@@ -57,15 +58,20 @@ export const LinkToDetails = styled(Link)`
   &:hover::after,
   &:focus::after {
     content: '';
-    background-image: url('https://image.tmdb.org/t/p/w500$', {props => props.cover})
-     
-    width: 150px;
-    height: 200px;
-    background: #ff3cac;
+    background-image: ${props =>
+      props.cover
+        ? `url('https://image.tmdb.org/t/p/w500/${props.cover}')`
+        : `url(${defaultPoster})`};
+
+    background-size: cover;
+    width: 160px;
+    height: 240px;
     display: block;
     border-radius: 2px;
+    border: 1px solid rgba(43, 134, 197);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     position: absolute;
-    top: -100px;
+    top: -120px;
     left: 350px;
     z-index: 1;
   }
