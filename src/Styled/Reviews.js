@@ -15,27 +15,6 @@ export const Wrapper = styled.div`
   &:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
   }
-
-  ::-webkit-scrollbar-track {
-    background-color: transparent;
-    border-radius: 10px;
-  }
-
-  ::-webkit-scrollbar {
-    width: 10px;
-    background-color: transparent;
-    border-radius: 10px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background-image: linear-gradient(
-      225deg,
-      #2b86c5 0%,
-      #784ba0 50%,
-      #ff3cac 100%
-    );
-  }
 `;
 
 export const List = styled.ul`

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-
 import { Wrapper, Header } from '../Styled/GlobalStyles';
 import { MoviesList } from '../components/MoviesList';
 import { PageButtons } from 'components/PageButtons';

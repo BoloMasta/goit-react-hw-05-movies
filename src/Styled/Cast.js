@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   width: 100%;
   max-width: 1200px;
   height: 100%;
-  max-height: 500px;
+  height: 500px;
   overflow-y: scroll;
   transition: all 0.2s ease-in-out;
   padding: 10px;
@@ -15,27 +15,6 @@ export const Wrapper = styled.div`
 
   &:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-  }
-
-  ::-webkit-scrollbar-track {
-    background-color: transparent;
-    border-radius: 10px;
-  }
-
-  ::-webkit-scrollbar {
-    width: 10px;
-    background-color: transparent;
-    border-radius: 10px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background-image: linear-gradient(
-      225deg,
-      #2b86c5 0%,
-      #784ba0 50%,
-      #ff3cac 100%
-    );
   }
 `;
 
@@ -50,7 +29,7 @@ export const Item = styled.li`
   display: flex;
   flex-direction: row;
   height: 200px;
-  gap: 10px;
+  gap: 20px;
   width: 100%;
   margin-bottom: 10px;
   border-radius: 10px;

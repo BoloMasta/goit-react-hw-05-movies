@@ -18,17 +18,13 @@ export const GlobalStyles = createGlobalStyle`
         color: #000;
         overflow-y: scroll;    
         overflow: overlay;
+        
     }  
 
     code {
         font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
     };
-
-    ::-webkit-scrollbar-track
-    {
-        background-color: transparent;
-    }
 
     ::-webkit-scrollbar
     {
@@ -47,7 +43,6 @@ export const GlobalStyles = createGlobalStyle`
         );
 
         &:hover {
-            cursor: repeat;
             box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
         }
     }`;

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-
 import { Wrapper } from 'Styled/GlobalStyles';
 import { SearchBox } from 'components/SearchBox';
 import { MoviesList } from 'components/MoviesList';

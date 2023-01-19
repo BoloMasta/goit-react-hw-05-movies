@@ -4,6 +4,7 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { Wrapper, List, Item, Image, Name, Character } from '../Styled/Cast';
 import { useRequest } from '../services/useRequest';
+import defaultCastPoster from '../images/default_cast.jpg';
 
 const castReducer = (state, action) => {
   switch (action.type) {
@@ -40,6 +41,8 @@ const Cast = () => {
     dispatch({ type: 'SET_LOADED', payload: castMemberId });
   };
 
+  console.log(cast);
+
   return (
     <>
       {error && <h2>Something went wrong. Try again later.</h2>}
@@ -74,7 +77,7 @@ const Cast = () => {
                         src={
                           profile_path
                             ? `https://image.tmdb.org/t/p/w500${profile_path}`
-                            : 'https://via.placeholder.com/150'
+                            : defaultCastPoster
                         }
                         alt={name}
                         data-id={id}

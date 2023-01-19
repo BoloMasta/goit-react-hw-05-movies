@@ -1,4 +1,3 @@
-// import Parser from 'html-react-parser';
 import { useParams, useLocation, Outlet } from 'react-router-dom';
 import { useState, useEffect, Suspense } from 'react';
 import { useRequest } from '../services/useRequest';
@@ -59,6 +58,7 @@ const MovieDetails = () => {
   };
 
   useEffect(() => {
+    document.body.style.height = 'auto';
     return () => {
       document.body.style.height = 'auto';
     };
