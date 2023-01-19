@@ -14,19 +14,12 @@ export const Wrapper = styled.div`
 
 export const List = styled.ul`
   list-style: none;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
+  font-weight: 500;
 `;
 
 export const Item = styled.li`
-  padding: 6px 12px;
-  background: linear-gradient(white, white) padding-box,
-    linear-gradient(
-        to right,
-        rgb(255, 255, 255) 0%,
-        darkblue 5%,
-        rgb(255, 255, 255) 30%
-      )
-      border-box;
+  padding: 5px 12px;
   border-bottom: 1px solid transparent;
   position: relative;
 
@@ -71,8 +64,8 @@ export const LinkToDetails = styled(Link)`
     border: 1px solid rgba(43, 134, 197);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     position: absolute;
-    top: -120px;
-    left: 350px;
+    top: -140px;
+    left: 400px;
     z-index: 1;
   }
 `;

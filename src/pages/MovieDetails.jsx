@@ -54,10 +54,7 @@ const MovieDetails = () => {
 
   const handleImageLoaded = () => {
     setIsImageLoaded({ loaded: true, height: 500 });
-    console.log(productionCompaniesList);
   };
-
-  console.log(data);
 
   return (
     <>

@@ -13,7 +13,6 @@ export const PageButtons = ({ page, totalPages, onPrevPage, onNextPage }) => {
       style={{
         display: 'flex',
         justifyContent: 'flex-start',
-        marginTop: 15,
       }}
     >
       <Button

@@ -1,24 +1,29 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import logoImage from 'images/logo-camera.png';
-
-export const Background = styled.div`
-  background-image: linear-gradient(
-    225deg,
-    #ff3cac 0%,
-    #784ba0 50%,
-    #2b86c5 100%
-  );
-  height: 5rem;
-  width: 100vw;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-`;
+import background from 'images/background.jpg';
 
 export const Container = styled.div`
   max-width: 1200px;
+  height: 100vh;
   margin: 0 auto;
   padding: 0 16px;
-  background-position: center;
+
+  &:before {
+    content: '';
+    background-image: url(${background});
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.3;
+    filter: blur(5px);
+  }
 `;
 
 export const Header = styled.header`

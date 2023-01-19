@@ -51,7 +51,7 @@ export const GlobalStyles = createGlobalStyle`
 export const Wrapper = styled.div`
   padding: 0 16px;
 
-  &:before {
+  /* &:before {
     content: '';
     background-image: url(${background});
     background-size: cover;
@@ -63,9 +63,9 @@ export const Wrapper = styled.div`
     width: 100%;
     height: 100%;
     z-index: -1;
-    opacity: 0.5;
+    opacity: 0.3;
     filter: blur(5px);
-  }
+  } */
 `;
 
 export const Header = styled.h2`
