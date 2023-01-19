@@ -11,6 +11,10 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v2.3.1
 
+      - name: Set environment variable
+        env:
+          REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
+
       - name: Install, lint, build 🔧
         run: |
           npm install

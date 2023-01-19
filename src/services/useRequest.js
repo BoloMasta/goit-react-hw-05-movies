@@ -1,7 +1,7 @@
 import useSwr from 'swr';
 
-const apiKey = '92be59e0090ddfe5570b8756c403476a';
-//const apiKey = process.env.REACT_APP_API_KEY;
+//const apiKey = '92be59e0090ddfe5570b8756c403476a';
+const apiKey = REACT_APP_API_KEY;
 const baseUrl = 'https://api.themoviedb.org/3';
 
 export const useRequest = (path, page, query) => {
