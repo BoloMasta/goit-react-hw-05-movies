@@ -4,8 +4,8 @@ import { HiSearch } from 'react-icons/hi';
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
+  gap: 1.5rem;
   padding: 0 16px;
-  margin-bottom: 16px;
   flex-wrap: wrap;
 
   input {
@@ -45,14 +45,14 @@ export const Header = styled.h2`
   font-size: 1.5rem;
   font-weight: 500;
   margin: 1rem 0;
-  display: block;
-  flex-basis: 100%;
+  display: inline-block;
 `;
 
 export const Icon = styled(HiSearch)`
   width: 25px;
   height: 25px;
-  margin-left: -32px;
+  position: relative;
+  right: 56px;
   z-index: 1;
-  opacity: 0.8;
+  opacity: 0.7;
 `;

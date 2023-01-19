@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
 
 export const List = styled.ul`
   list-style: none;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 `;
 
 export const Item = styled.li`

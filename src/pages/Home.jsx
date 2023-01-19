@@ -2,7 +2,7 @@
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
-import { Wrapper, Header } from '../Styled/Home';
+import { Wrapper, Header } from '../Styled/GlobalStyles';
 import { MoviesList } from '../components/MoviesList';
 import { PageButtons } from 'components/PageButtons';
 

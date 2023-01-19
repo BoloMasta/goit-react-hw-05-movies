@@ -4,7 +4,7 @@ import { Wrapper, Header, Icon } from '../Styled/SearchBox';
 export const SearchBox = ({ value, onChange }) => {
   return (
     <Wrapper>
-      <Header>Search movies</Header>
+      <Header>Search movies:</Header>
       <DebounceInput
         type="text"
         debounceTimeout={500}

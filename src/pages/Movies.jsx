@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
+import { Wrapper } from 'Styled/GlobalStyles';
 import { SearchBox } from 'components/SearchBox';
 import { MoviesList } from 'components/MoviesList';
 import { PageButtons } from 'components/PageButtons';
@@ -24,7 +25,7 @@ const Movies = () => {
   };
 
   return (
-    <>
+    <Wrapper>
       <SearchBox value={movieName} onChange={updateQueryString} />
       {error && <h2>failed to load</h2>}
       {!data ? (
@@ -48,7 +49,7 @@ const Movies = () => {
           )}
         </>
       )}
-    </>
+    </Wrapper>
   );
 };
 
