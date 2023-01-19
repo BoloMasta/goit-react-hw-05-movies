@@ -28,17 +28,6 @@ export const PageButtons = ({ page, totalPages, onPrevPage, onNextPage }) => {
         reverse="true"
         onClick={() => onNextPage()}
       />
-
-      {/* <Button disabled={page === 1} onClick={() => onPrevPage()} type="button">
-        Prev
-      </Button>
-      <Button
-        disabled={page === totalPages}
-        onClick={() => onNextPage()}
-        type="button"
-      >
-        Next
-      </Button> */}
     </div>
   );
 };

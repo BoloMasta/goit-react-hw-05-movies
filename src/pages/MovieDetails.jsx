@@ -2,7 +2,7 @@
 import { useParams, useLocation, Outlet } from 'react-router-dom';
 import { useState, Suspense } from 'react';
 import { useRequest } from '../services/useRequest';
-import Skeleton from 'react-loading-skeleton';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
 import { Loader } from '../components/Loader';
@@ -67,8 +67,9 @@ const MovieDetails = () => {
             <Button label="Go back" icon="left_arrow" />
           </BackButton>
           <MovieCard>
-            {!isImageLoaded.loaded && <Skeleton width={333} height={500} />}
-
+            <SkeletonTheme baseColor="#dddddd" highlightColor="#a5a5a5">
+              {!isImageLoaded.loaded && <Skeleton width={333} height={500} />}
+            </SkeletonTheme>
             <Poster
               src={
                 data.poster_path === null

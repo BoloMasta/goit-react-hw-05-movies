@@ -1,6 +1,6 @@
 import { useEffect, useReducer } from 'react';
 import { useParams } from 'react-router-dom';
-import Skeleton from 'react-loading-skeleton';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
 import { Wrapper, List, Item, Image, Name, Character } from '../Styled/Cast';
@@ -47,17 +47,19 @@ const Cast = () => {
       {error && <h2>Something went wrong. Try again later.</h2>}
       {!data ? (
         <Wrapper>
-          <List>
-            <Item>
-              <Skeleton width={150} height={200} inline={true} />
-              <Name>
-                <Skeleton width={200} height={50} inline={true} />
-              </Name>
-              <Character>
-                <Skeleton width={400} height={50} inline={true} />
-              </Character>
-            </Item>
-          </List>
+          <SkeletonTheme baseColor="#dddddd" highlightColor="#a5a5a5">
+            <List>
+              <Item>
+                <Skeleton width={150} height={200} inline={true} />
+                <Name>
+                  <Skeleton width={200} height={50} inline={true} />
+                </Name>
+                <Character>
+                  <Skeleton width={400} height={50} inline={true} />
+                </Character>
+              </Item>
+            </List>
+          </SkeletonTheme>
         </Wrapper>
       ) : (
         <>
@@ -68,21 +70,23 @@ const Cast = () => {
               <List>
                 {cast.map(({ id, profile_path, name, character, loaded }) => (
                   <Item key={id}>
-                    {!loaded && <Skeleton width={150} height={195} />}
-                    <Image
-                      src={
-                        profile_path
-                          ? `https://image.tmdb.org/t/p/w500${profile_path}`
-                          : 'https://via.placeholder.com/150'
-                      }
-                      alt={name}
-                      data-id={id}
-                      onLoad={handleCastImageLoaded}
-                      height={loaded ? 200 : 0}
-                      width={loaded ? 150 : 0}
-                    />
-                    <Name>{name}</Name>
-                    <Character>{character}</Character>
+                    <SkeletonTheme baseColor="#dddddd" highlightColor="#a5a5a5">
+                      {!loaded && <Skeleton width={150} height={195} />}
+                      <Image
+                        src={
+                          profile_path
+                            ? `https://image.tmdb.org/t/p/w500${profile_path}`
+                            : 'https://via.placeholder.com/150'
+                        }
+                        alt={name}
+                        data-id={id}
+                        onLoad={handleCastImageLoaded}
+                        height={loaded ? 200 : 0}
+                        width={loaded ? 150 : 0}
+                      />
+                      <Name>{name}</Name>
+                      <Character>{character}</Character>
+                    </SkeletonTheme>
                   </Item>
                 ))}
               </List>

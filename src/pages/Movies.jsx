@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import Skeleton from 'react-loading-skeleton';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
 import { Wrapper } from 'Styled/GlobalStyles';
@@ -26,29 +26,31 @@ const Movies = () => {
 
   return (
     <Wrapper>
-      <SearchBox value={movieName} onChange={updateQueryString} />
-      {error && <h2>failed to load</h2>}
-      {!data ? (
-        <Skeleton
-          count={15}
-          style={{ height: 30, width: 300, marginTop: 15 }}
-        />
-      ) : data?.total_results === 0 && movieName && !error ? (
-        <h2>No results found</h2>
-      ) : (
-        <>
-          <MoviesList movies={data.results} />
+      <SkeletonTheme baseColor="#dddddd" highlightColor="#a5a5a5">
+        <SearchBox value={movieName} onChange={updateQueryString} />
+        {error && <h2>failed to load</h2>}
+        {!data ? (
+          <Skeleton
+            count={15}
+            style={{ height: 30, width: 300, marginTop: 15 }}
+          />
+        ) : data?.total_results === 0 && movieName && !error ? (
+          <h2>No results found</h2>
+        ) : (
+          <>
+            <MoviesList movies={data.results} />
 
-          {data.total_pages > 1 && (
-            <PageButtons
-              page={page}
-              totalPages={data.total_pages}
-              onPrevPage={() => setPage(page - 1)}
-              onNextPage={() => setPage(page + 1)}
-            />
-          )}
-        </>
-      )}
+            {data.total_pages > 1 && (
+              <PageButtons
+                page={page}
+                totalPages={data.total_pages}
+                onPrevPage={() => setPage(page - 1)}
+                onNextPage={() => setPage(page + 1)}
+              />
+            )}
+          </>
+        )}
+      </SkeletonTheme>
     </Wrapper>
   );
 };
