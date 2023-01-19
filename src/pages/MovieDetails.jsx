@@ -1,6 +1,6 @@
 // import Parser from 'html-react-parser';
 import { useParams, useLocation, Outlet } from 'react-router-dom';
-import { useState, Suspense } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRequest } from '../services/useRequest';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -54,6 +54,17 @@ const MovieDetails = () => {
   const handleImageLoaded = () => {
     setIsImageLoaded({ loaded: true, height: 500 });
   };
+
+  const setExtraPageHeight = () => {
+    console.log('pageHeight');
+    document.body.style.height = '1100px';
+  };
+
+  useEffect(() => {
+    return () => {
+      document.body.style.height = 'auto';
+    };
+  }, []);
 
   return (
     <>
@@ -119,12 +130,16 @@ const MovieDetails = () => {
           <ExtraButtonsList>
             <li>
               <ExtraButton to="cast">
-                <Button label="Cast" icon="cast" />
+                <Button label="Cast" icon="cast" onClick={setExtraPageHeight} />
               </ExtraButton>
             </li>
             <li>
               <ExtraButton to="reviews">
-                <Button label="Reviews" icon="review" />
+                <Button
+                  label="Reviews"
+                  icon="review"
+                  onClick={setExtraPageHeight}
+                />
               </ExtraButton>
             </li>
           </ExtraButtonsList>

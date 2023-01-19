@@ -5,7 +5,7 @@ import background from 'images/background.jpg';
 export const Wrapper = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 20px 20px 20px;
 
   &::before {
     content: '';
