@@ -11,21 +11,20 @@ export const Wrapper = styled.div`
   overflow-y: scroll;
   transition: all 0.2s ease-in-out;
   padding: 10px;
+  overflow: overlay;
 
   &:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
   }
 
   ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: #f5f5f5;
+    background-color: transparent;
     border-radius: 10px;
   }
 
   ::-webkit-scrollbar {
     width: 10px;
-    background-color: #f5f5f5;
+    background-color: transparent;
     border-radius: 10px;
   }
 

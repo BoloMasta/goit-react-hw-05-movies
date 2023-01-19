@@ -104,15 +104,6 @@ export const Score = styled.div`
     font-size: 1.2rem;
   }
 `;
-export const Votes = styled.span`
-  margin: 5px 0;
-  font-size: 1rem;
-  font-weight: 400;
-
-  @media screen and (max-width: 768px) {
-    font-size: 0.8rem;
-  }
-`;
 
 export const Header = styled.h3`
   margin: 15px 0 5px 0;
@@ -124,17 +115,7 @@ export const Header = styled.h3`
   }
 `;
 
-export const Overview = styled.p`
-  margin: 5px 0;
-  font-size: 1rem;
-  font-weight: 400;
-
-  @media screen and (max-width: 768px) {
-    font-size: 0.8rem;
-  }
-`;
-
-export const Genres = styled.p`
+export const TextData = styled.span`
   margin: 5px 0;
   font-size: 1rem;
   font-weight: 400;

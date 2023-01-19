@@ -17,15 +17,13 @@ export const Wrapper = styled.div`
   }
 
   ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: #f5f5f5;
+    background-color: transparent;
     border-radius: 10px;
   }
 
   ::-webkit-scrollbar {
     width: 10px;
-    background-color: #f5f5f5;
+    background-color: transparent;
     border-radius: 10px;
   }
 

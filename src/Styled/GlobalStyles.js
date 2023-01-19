@@ -45,6 +45,11 @@ export const GlobalStyles = createGlobalStyle`
             #784ba0 50%,
             #ff3cac 100%
         );
+
+        &:hover {
+            cursor: repeat;
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+        }
     }`;
 
 export const Wrapper = styled.div`
