@@ -1,6 +1,6 @@
 // import Parser from 'html-react-parser';
 import { useParams, useLocation, Outlet } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { useRequest } from '../services/useRequest';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -57,13 +57,15 @@ const MovieDetails = () => {
     console.log(productionCompaniesList);
   };
 
+  console.log(data);
+
   return (
     <>
       {error && <h2>Something went wrong. Try again later.</h2>}
       {!data ? (
         <Loader />
       ) : (
-        <Wrapper>
+        <Wrapper backdrop={data.backdrop_path}>
           <BackButton to={backLinkHref}>
             <Button label="Go back" icon="left_arrow" />
           </BackButton>
@@ -138,7 +140,9 @@ const MovieDetails = () => {
             </li>
           </ExtraButtonsList>
 
-          <Outlet />
+          <Suspense fallback={<Loader />}>
+            <Outlet />
+          </Suspense>
         </Wrapper>
       )}
     </>

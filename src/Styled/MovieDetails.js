@@ -6,6 +6,25 @@ export const Wrapper = styled.div`
   margin: 0 auto;
   padding: 0 20px;
 
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: ${props =>
+      props.backdrop &&
+      `url('https://image.tmdb.org/t/p/w500/${props.backdrop}')`};
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    filter: blur(5px);
+    z-index: -1;
+    opacity: 0.35;
+  }
+
   @media screen and (max-width: 768px) {
     padding: 0 5px;
   }

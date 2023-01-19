@@ -26,6 +26,7 @@ export const Wrapper = styled.div`
   ::-webkit-scrollbar {
     width: 10px;
     background-color: #f5f5f5;
+    border-radius: 10px;
   }
 
   ::-webkit-scrollbar-thumb {

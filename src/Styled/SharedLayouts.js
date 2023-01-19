@@ -31,6 +31,7 @@ export const Header = styled.header`
   height: 5rem;
   overflow: visible;
   background-color: transparent;
+  z-index: 1;
 
   &:before {
     content: '';
@@ -46,7 +47,7 @@ export const Header = styled.header`
     width: 100%;
     height: 5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    z-index: -1;
+    z-index: 0;
   }
 
   > nav {
@@ -59,6 +60,7 @@ export const Logo = styled.div`
   height: 50px;
   background-image: url(${logoImage});
   background-size: cover;
+  z-index: 1;
 `;
 
 export const Link = styled(NavLink)`
