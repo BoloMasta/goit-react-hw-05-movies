@@ -42,6 +42,8 @@ const Cast = () => {
     dispatch({ type: 'SET_LOADED', payload: castMemberId });
   };
 
+  console.log(cast);
+
   return (
     <>
       {error && <h2>Something went wrong. Try again later.</h2>}
@@ -63,7 +65,7 @@ const Cast = () => {
         </Wrapper>
       ) : (
         <>
-          {cast.length === 0 && !data ? (
+          {cast.length === 0 ? (
             <h2>We don't have any cast for this movie.</h2>
           ) : (
             <Wrapper>
