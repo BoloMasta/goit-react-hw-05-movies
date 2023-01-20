@@ -1,9 +1,11 @@
+import { Wrapper, Header, Paragraph } from '../Styled/NotFound';
+
 const NotFound = () => {
   return (
-    <div>
-      <h1>404 Not Found</h1>
-      <p>Sorry, the page you are looking for does not exist.</p>
-    </div>
+    <Wrapper>
+      <Header>404 Not Found</Header>
+      <Paragraph>Sorry, the page you are looking for does not exist.</Paragraph>
+    </Wrapper>
   );
 };
 
