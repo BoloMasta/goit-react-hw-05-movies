@@ -22,10 +22,10 @@ export const Wrapper = styled.div`
   &::after {
     content: '';
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0px;
+    left: -5px;
+    width: calc(100% + 10px);
+    height: calc(100vh + 10px);
     background-image: ${props =>
       props.backdrop
         ? `url('https://image.tmdb.org/t/p/w500/${props.backdrop}')`

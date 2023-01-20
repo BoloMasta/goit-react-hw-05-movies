@@ -57,4 +57,8 @@ export const Header = styled.h2`
   margin: 1rem 0;
   display: block;
   flex-basis: 100%;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
 `;

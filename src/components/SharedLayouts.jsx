@@ -9,10 +9,12 @@ export const SharedLayout = () => {
       <Header>
         <Logo />
         <nav>
-          <Link to="/" end>
+          <Link to="/" end onClick={e => e.currentTarget.blur()}>
             Home
           </Link>
-          <Link to="/movies">Movies</Link>
+          <Link to="/movies" onClick={e => e.currentTarget.blur()}>
+            Movies
+          </Link>
         </nav>
       </Header>
 

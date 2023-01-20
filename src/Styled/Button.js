@@ -35,6 +35,13 @@ export const Wrapper = styled.button`
     cursor: not-allowed;
     opacity: 0.4;
   }
+
+  @media (max-width: 768px) {
+    font-size: 0.7rem;
+    padding: 5px;
+    margin: 10px 10px 10px 0;
+    min-width: 100px;
+  }
 `;
 
 export const Icon = styled.img`
@@ -43,4 +50,11 @@ export const Icon = styled.img`
   width: 25px;
   height: 25px;
   filter: grayscale(1) invert(1);
+
+  @media (max-width: 768px) {
+    margin-right: ${props => (props.reverse === 'true' ? '0' : '7px')};
+    margin-left: ${props => (props.reverse === 'true' ? '7px' : '0')};
+    width: 20px;
+    height: 20px;
+  }
 `;

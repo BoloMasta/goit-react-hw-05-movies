@@ -52,9 +52,10 @@ const MovieDetails = () => {
     setIsImageLoaded({ loaded: true, height: 500 });
   };
 
-  const setExtraPageHeight = () => {
+  const setExtraPageHeight = e => {
     console.log('pageHeight');
     document.body.style.height = '1100px';
+    e.currentTarget.blur();
   };
 
   useEffect(() => {

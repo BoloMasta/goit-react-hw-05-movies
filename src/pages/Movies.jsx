@@ -28,7 +28,7 @@ const Movies = () => {
       <SkeletonTheme baseColor="#dddddd" highlightColor="#a5a5a5">
         <SearchBox value={movieName} onChange={updateQueryString} />
         {error && <h2>failed to load</h2>}
-        {!data ? (
+        {!data && searchParams !== '' ? (
           <Skeleton
             count={15}
             style={{ height: 30, width: 300, marginTop: 15 }}

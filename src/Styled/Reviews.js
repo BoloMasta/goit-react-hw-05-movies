@@ -55,10 +55,18 @@ export const Author = styled.p`
   text-align: left;
   width: 100%;
   white-space: nowrap;
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.2rem;
+  }
 `;
 
 export const Content = styled.p`
   font-size: 1rem;
   font-weight: 400;
   text-align: left;
+
+  @media screen and (max-width: 768px) {
+    font-size: 0.8rem;
+  }
 `;

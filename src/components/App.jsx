@@ -1,12 +1,6 @@
-// import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { lazy } from 'react';
-
 import { SharedLayout } from './SharedLayouts';
-// import MovieDetails from '../pages/MovieDetails';
-// import Cast from '../components/Cast';
-// import Reviews from '../components/Reviews';
-// import NotFound from '../pages/NotFound';
 
 const Home = lazy(() => import('../pages/Home'));
 const MovieDetails = lazy(() => import('../pages/MovieDetails'));
