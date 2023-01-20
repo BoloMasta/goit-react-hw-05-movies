@@ -5,6 +5,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import { Wrapper, List, Item, Image, Name, Character } from '../Styled/Cast';
 import { useRequest } from '../services/useRequest';
 import defaultCastPoster from '../images/default_cast.jpg';
+import propTypes from 'prop-types';
 
 const castReducer = (state, action) => {
   switch (action.type) {
@@ -40,8 +41,6 @@ const Cast = () => {
     const castMemberId = Number(e.target.dataset.id);
     dispatch({ type: 'SET_LOADED', payload: castMemberId });
   };
-
-  console.log(cast);
 
   return (
     <>
@@ -100,3 +99,20 @@ const Cast = () => {
 };
 
 export default Cast;
+
+Cast.propTypes = {
+  movieId: propTypes.number,
+  data: propTypes.shape({
+    cast: propTypes.arrayOf(
+      propTypes.shape({
+        id: propTypes.number,
+        profile_path: propTypes.string,
+        name: propTypes.string,
+        character: propTypes.string,
+      })
+    ),
+  }),
+  error: propTypes.object,
+  dispatch: propTypes.func,
+  handleCastImageLoaded: propTypes.func,
+};

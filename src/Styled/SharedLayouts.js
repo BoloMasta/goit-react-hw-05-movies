@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import logoImage from 'images/logo-camera.png';
 import background from 'images/background.jpg';
+import propTypes from 'prop-types';
 
 export const Container = styled.div`
   max-width: 1200px;
@@ -99,3 +100,11 @@ export const Link = styled(NavLink)`
     font-size: 1.2rem;
   }
 `;
+
+Container.propTypes = {
+  background: propTypes.string,
+};
+
+Logo.propTypes = {
+  logoImage: propTypes.string,
+};

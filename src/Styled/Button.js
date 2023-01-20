@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import propTypes from 'prop-types';
 
 export const Wrapper = styled.button`
   display: flex;
@@ -58,3 +59,7 @@ export const Icon = styled.img`
     height: 20px;
   }
 `;
+
+Icon.propTypes = {
+  reverse: propTypes.string,
+};

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import background from 'images/background.jpg';
+import propTypes from 'prop-types';
 
 export const Wrapper = styled.div`
   max-width: 1200px;
@@ -147,3 +148,11 @@ export const ExtraButtonsList = styled.ul`
 export const ExtraButton = styled(Link)`
   text-decoration: none;
 `;
+
+Wrapper.propTypes = {
+  backdrop: propTypes.string,
+};
+
+Poster.propTypes = {
+  height: propTypes.number,
+};

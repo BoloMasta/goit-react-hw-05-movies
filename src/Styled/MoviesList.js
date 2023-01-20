@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import filmTape from 'images/film-tape.png';
 import defaultPoster from 'images/default_poster.jpg';
+import propTypes from 'prop-types';
 
 export const Wrapper = styled.div`
   margin: 0 auto;
@@ -71,3 +72,12 @@ export const LinkToDetails = styled(Link)`
     }
   }
 `;
+
+Item.propTypes = {
+  filmTape: propTypes.string,
+};
+
+LinkToDetails.propTypes = {
+  cover: propTypes.string,
+  defaultPoster: propTypes.string,
+};

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import propTypes from 'prop-types';
 
 export const Wrapper = styled.div`
   border-radius: 10px;
@@ -75,3 +76,8 @@ export const Character = styled.p`
   display: flex;
   align-items: center;
 `;
+
+Image.propTypes = {
+  width: propTypes.number,
+  height: propTypes.number,
+};

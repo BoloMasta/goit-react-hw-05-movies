@@ -1,4 +1,5 @@
 import { Button } from './Button';
+import propTypes from 'prop-types';
 
 export const PageButtons = ({ page, totalPages, onPrevPage, onNextPage }) => {
   if (totalPages === 1) {
@@ -30,4 +31,11 @@ export const PageButtons = ({ page, totalPages, onPrevPage, onNextPage }) => {
       />
     </div>
   );
+};
+
+PageButtons.propTypes = {
+  page: propTypes.number,
+  totalPages: propTypes.number,
+  onPrevPage: propTypes.func,
+  onNextPage: propTypes.func,
 };

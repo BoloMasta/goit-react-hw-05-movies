@@ -6,6 +6,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import { Loader } from '../components/Loader';
 import { Button } from 'components/Button';
 import defaultPoster from 'images/default_poster.jpg';
+import propTypes from 'prop-types';
 
 import {
   Wrapper,
@@ -53,7 +54,6 @@ const MovieDetails = () => {
   };
 
   const setExtraPageHeight = e => {
-    console.log('pageHeight');
     document.body.style.height = '1100px';
     e.currentTarget.blur();
   };
@@ -64,6 +64,8 @@ const MovieDetails = () => {
       document.body.style.height = 'auto';
     };
   }, []);
+
+  console.log(productionCompaniesList);
 
   return (
     <>
@@ -117,12 +119,15 @@ const MovieDetails = () => {
               <TextData>
                 {genresList !== '' ? genresList : 'No genres provided'}
               </TextData>
-              <Header>Production companies</Header>
-              <ProuctionCompanies>
-                {productionCompaniesList.length > 0
-                  ? productionCompaniesList
-                  : 'No production companies provided'}
-              </ProuctionCompanies>
+              {productionCompaniesList[0] !== '' &&
+                productionCompaniesList.length > 0 && (
+                  <>
+                    <Header>Production companies</Header>
+                    <ProuctionCompanies>
+                      {productionCompaniesList}
+                    </ProuctionCompanies>
+                  </>
+                )}
             </Info>
           </MovieCard>
 
@@ -153,3 +158,15 @@ const MovieDetails = () => {
 };
 
 export default MovieDetails;
+
+MovieDetails.propTypes = {
+  movieId: propTypes.string,
+  data: propTypes.object,
+  error: propTypes.object,
+  location: propTypes.object,
+  isImageLoaded: propTypes.object,
+  genresList: propTypes.string,
+  productionCompaniesList: propTypes.array,
+  handleImageLoaded: propTypes.func,
+  setExtraPageHeight: propTypes.func,
+};

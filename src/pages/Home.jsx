@@ -5,6 +5,7 @@ import { Wrapper, Header } from '../Styled/GlobalStyles';
 import { MoviesList } from '../components/MoviesList';
 import { PageButtons } from 'components/PageButtons';
 import { useRequest } from '../services/useRequest';
+import propTypes from 'prop-types';
 
 const Home = () => {
   const [page, setPage] = useState(1);
@@ -37,3 +38,10 @@ const Home = () => {
 };
 
 export default Home;
+
+Home.propTypes = {
+  page: propTypes.number,
+  setPage: propTypes.func,
+  data: propTypes.object,
+  error: propTypes.object,
+};
