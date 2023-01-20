@@ -7,11 +7,9 @@ import { GlobalStyles } from 'Styled/GlobalStyles';
 
 const fetcher = (...args) => fetch(...args).then(response => response.json());
 
-// {process.env.PUBLIC_URL}
-
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/">
+    <BrowserRouter basename="{process.env.PUBLIC_URL}">
       <SWRConfig value={{ fetcher }}>
         <GlobalStyles />
         <App />
