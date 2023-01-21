@@ -1,14 +1,10 @@
 import { useState } from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-import {
-  Wrapper,
-  Header,
-} from '../components/GlobalStyles/GlobalStyles.styled';
+import { Wrapper, Header } from '../components/GlobalStyles/GlobalStyles.styled';
 import { MoviesList } from '../components/MoviesList/MoviesList';
 import { PageButtons } from 'components/Buttons/PageButtons';
 import { useRequest } from '../services/useRequest';
-import propTypes from 'prop-types';
 
 const Home = () => {
   const [page, setPage] = useState(1);
@@ -20,10 +16,7 @@ const Home = () => {
       <Header>Trending movies:</Header>
       <SkeletonTheme baseColor="#dddddd" highlightColor="#a5a5a5">
         {!data ? (
-          <Skeleton
-            count={15}
-            style={{ height: 30, width: 300, marginTop: 15 }}
-          />
+          <Skeleton count={15} style={{ height: 30, width: 300, marginTop: 15 }} />
         ) : (
           <>
             <MoviesList movies={data.results} />
@@ -41,10 +34,3 @@ const Home = () => {
 };
 
 export default Home;
-
-Home.propTypes = {
-  page: propTypes.number,
-  setPage: propTypes.func,
-  data: propTypes.object,
-  error: propTypes.object,
-};

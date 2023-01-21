@@ -13,9 +13,7 @@ const castReducer = (state, action) => {
       return action.payload;
     case 'SET_LOADED':
       return state.map(castMember =>
-        castMember.id === action.payload
-          ? { ...castMember, loaded: true }
-          : castMember
+        castMember.id === action.payload ? { ...castMember, loaded: true } : castMember
       );
     default:
       return state;
@@ -99,6 +97,33 @@ const Cast = () => {
 };
 
 export default Cast;
+
+castReducer.propTypes = {
+  state: propTypes.arrayOf(
+    propTypes.shape({
+      id: propTypes.number,
+      profile_path: propTypes.string,
+      name: propTypes.string,
+      character: propTypes.string,
+      loaded: propTypes.bool,
+    })
+  ),
+  action: propTypes.shape({
+    type: propTypes.string,
+    payload: propTypes.oneOfType([
+      propTypes.arrayOf(
+        propTypes.shape({
+          id: propTypes.number,
+          profile_path: propTypes.string,
+          name: propTypes.string,
+          character: propTypes.string,
+          loaded: propTypes.bool,
+        })
+      ),
+      propTypes.number,
+    ]),
+  }),
+};
 
 Cast.propTypes = {
   movieId: propTypes.number,

@@ -6,8 +6,8 @@ export const PageButtons = ({ page, totalPages, onPrevPage, onNextPage }) => {
     return null;
   }
 
-  const prevDisabled = page === 1 ? true : false;
-  const nextDisabled = page === totalPages ? true : false;
+  const prevDisabled = page === 1;
+  const nextDisabled = page === totalPages;
 
   return (
     <div

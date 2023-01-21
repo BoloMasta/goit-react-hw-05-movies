@@ -16,8 +16,8 @@ export const Header = styled.h1`
   margin: 0;
   padding: 0;
   text-align: center;
-  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #ff3cac,
-    0 0 82px #ff3cac, 0 0 92px #ff3cac, 0 0 102px #ff3cac, 0 0 151px #ff3cac;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #ff3cac, 0 0 82px #ff3cac,
+    0 0 92px #ff3cac, 0 0 102px #ff3cac, 0 0 151px #ff3cac;
   animation: flicker 1.5s infinite alternate;
 
   @keyframes flicker {
@@ -28,8 +28,8 @@ export const Header = styled.h1`
     53%,
     57%,
     100% {
-      text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #ff3cac,
-        0 0 80px #ff3cac, 0 0 90px #ff3cac, 0 0 100px #ff3cac, 0 0 150px #ff3cac;
+      text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #ff3cac, 0 0 80px #ff3cac,
+        0 0 90px #ff3cac, 0 0 100px #ff3cac, 0 0 150px #ff3cac;
     }
 
     20%,
@@ -44,7 +44,7 @@ export const Paragraph = styled.p`
   font-size: 1.5rem;
   font-weight: 400;
   color: #000;
-  margin: 0;
+  margin: 30px auto;
   padding: 0;
   text-align: center;
 `;
