@@ -1,5 +1,5 @@
 import { useParams, useLocation, Outlet } from 'react-router-dom';
-import { useState, useEffect, Suspense } from 'react';
+import { useState, Suspense } from 'react';
 import { useRequest } from '../services/useRequest';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -57,13 +57,6 @@ const MovieDetails = () => {
     document.body.style.height = '1100px';
     e.currentTarget.blur();
   };
-
-  useEffect(() => {
-    document.body.style.height = 'auto';
-    return () => {
-      document.body.style.height = 'auto';
-    };
-  }, []);
 
   return (
     <>
