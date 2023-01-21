@@ -3,8 +3,8 @@ import { useState, useEffect, Suspense } from 'react';
 import { useRequest } from '../services/useRequest';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-import { Loader } from '../components/Loader';
-import { Button } from 'components/Button';
+import { Loader } from '../components/Loader/Loader';
+import { Button } from 'components/Buttons/Button';
 import defaultPoster from 'images/default_poster.jpg';
 import propTypes from 'prop-types';
 
@@ -21,7 +21,7 @@ import {
   ProuctionCompanies,
   ExtraButtonsList,
   ExtraButton,
-} from 'Styled/MovieDetails';
+} from 'components/Pages/MovieDetails.styled';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -64,8 +64,6 @@ const MovieDetails = () => {
       document.body.style.height = 'auto';
     };
   }, []);
-
-  console.log(productionCompaniesList);
 
   return (
     <>

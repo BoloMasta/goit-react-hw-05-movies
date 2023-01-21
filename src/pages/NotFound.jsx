@@ -1,4 +1,8 @@
-import { Wrapper, Header, Paragraph } from '../Styled/NotFound';
+import {
+  Wrapper,
+  Header,
+  Paragraph,
+} from '../components/Pages/NotFound.styled';
 
 const NotFound = () => {
   return (

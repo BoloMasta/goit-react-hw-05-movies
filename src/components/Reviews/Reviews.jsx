@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-import { Wrapper, List, Item, Author, Content } from '../Styled/Reviews';
-import { useRequest } from '../services/useRequest';
+import { Wrapper, List, Item, Author, Content } from './Reviews.styled';
+import { useRequest } from '../../services/useRequest';
 import propTypes from 'prop-types';
 
 const Reviews = () => {

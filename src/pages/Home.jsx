@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-import { Wrapper, Header } from '../Styled/GlobalStyles';
-import { MoviesList } from '../components/MoviesList';
-import { PageButtons } from 'components/PageButtons';
+import {
+  Wrapper,
+  Header,
+} from '../components/GlobalStyles/GlobalStyles.styled';
+import { MoviesList } from '../components/MoviesList/MoviesList';
+import { PageButtons } from 'components/Buttons/PageButtons';
 import { useRequest } from '../services/useRequest';
 import propTypes from 'prop-types';
 

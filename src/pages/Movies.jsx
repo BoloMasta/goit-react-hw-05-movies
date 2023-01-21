@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-import { Wrapper } from 'Styled/GlobalStyles';
-import { SearchBox } from 'components/SearchBox';
-import { MoviesList } from 'components/MoviesList';
-import { PageButtons } from 'components/PageButtons';
+import { Wrapper } from 'components/GlobalStyles/GlobalStyles.styled';
+import { SearchBox } from 'components/SearchBox/SearchBox';
+import { MoviesList } from 'components/MoviesList/MoviesList';
+import { PageButtons } from 'components/Buttons/PageButtons';
 import { useRequest } from '../services/useRequest';
 import propTypes from 'prop-types';
 

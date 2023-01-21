@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { SWRConfig } from 'swr';
 import { BrowserRouter } from 'react-router-dom';
 import { App } from 'components/App';
-import { GlobalStyles } from 'Styled/GlobalStyles';
+import { GlobalStyles } from 'components/GlobalStyles/GlobalStyles.styled';
 
 const fetcher = (...args) => fetch(...args).then(response => response.json());
 

@@ -1,11 +1,11 @@
-import { Wrapper, Icon } from '../Styled/Button';
+import { Wrapper, Icon } from './Button.styled';
 import propTypes from 'prop-types';
 
 export const Button = ({ label, icon, reverse, onClick, disabled }) => (
   <Wrapper onClick={onClick} disabled={disabled}>
     {reverse && label}
     <Icon
-      src={require(`../images/${icon}.png`)}
+      src={require(`../../images/${icon}.png`)}
       alt={label}
       reverse={reverse}
     />
