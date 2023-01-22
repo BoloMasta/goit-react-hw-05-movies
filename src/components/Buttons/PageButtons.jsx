@@ -1,13 +1,10 @@
 import { Button } from './Button';
 import propTypes from 'prop-types';
 
-export const PageButtons = ({ page, totalPages, onPrevPage, onNextPage }) => {
+export const PageButtons = ({ page, totalPages, handlePageChange }) => {
   if (totalPages === 1) {
     return null;
   }
-
-  const prevDisabled = page === 1;
-  const nextDisabled = page === totalPages;
 
   return (
     <div
@@ -17,17 +14,17 @@ export const PageButtons = ({ page, totalPages, onPrevPage, onNextPage }) => {
       }}
     >
       <Button
-        disabled={prevDisabled}
+        disabled={page === 1}
         label="Prev page"
         icon="left_arrow"
-        onClick={() => onPrevPage()}
+        onClick={() => handlePageChange(page - 1)}
       />
       <Button
-        disabled={nextDisabled}
+        disabled={page === totalPages}
         label="Next page"
         icon="right_arrow"
         reverse="true"
-        onClick={() => onNextPage()}
+        onClick={() => handlePageChange(page + 1)}
       />
     </div>
   );
@@ -36,6 +33,5 @@ export const PageButtons = ({ page, totalPages, onPrevPage, onNextPage }) => {
 PageButtons.propTypes = {
   page: propTypes.number,
   totalPages: propTypes.number,
-  onPrevPage: propTypes.func,
-  onNextPage: propTypes.func,
+  handlePageChange: propTypes.func,
 };

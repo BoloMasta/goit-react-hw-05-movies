@@ -22,7 +22,7 @@ import {
   ProuctionCompanies,
   ExtraButtonsList,
   ExtraButton,
-} from 'components/Pages/MovieDetails.styled';
+} from 'components/Pages.styled/MovieDetails.styled';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -61,9 +61,8 @@ const MovieDetails = () => {
 
   return (
     <>
-      {error && <h2>Something went wrong. Try again later.</h2>}
-      {data?.success === false && <NotFound />}
-      {!data ? (
+      {error && <NotFound />}
+      {!data && !error ? (
         <Loader />
       ) : (
         data &&
@@ -143,8 +142,6 @@ export default MovieDetails;
 
 MovieDetails.propTypes = {
   movieId: propTypes.string,
-  data: propTypes.object,
-  error: propTypes.object,
   location: propTypes.object,
   isImageLoaded: propTypes.object,
   genresList: propTypes.string,

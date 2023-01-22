@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { Wrapper, Header } from '../components/GlobalStyles/GlobalStyles.styled';
@@ -9,6 +9,13 @@ import { useRequest } from '../services/useRequest';
 const Home = () => {
   const [page, setPage] = useState(1);
   const { data, error } = useRequest(`/trending/movie/day`, page);
+
+  const handlePageChange = useCallback(
+    page => {
+      setPage(page);
+    },
+    [setPage]
+  );
 
   return (
     <Wrapper>
@@ -23,8 +30,7 @@ const Home = () => {
             <PageButtons
               page={page}
               totalPages={data.total_pages}
-              onPrevPage={() => setPage(page - 1)}
-              onNextPage={() => setPage(page + 1)}
+              handlePageChange={handlePageChange}
             />
           </>
         )}

@@ -15,5 +15,6 @@ export const useRequest = (path, page, query) => {
     : `${baseUrl}${path}?api_key=${apiKey}`;
 
   const { data, error } = useSwr(url);
+
   return { data, error };
 };

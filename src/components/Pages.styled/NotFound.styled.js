@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -47,4 +48,8 @@ export const Paragraph = styled.p`
   margin: 30px auto;
   padding: 0;
   text-align: center;
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
 `;

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -13,16 +13,19 @@ const Movies = () => {
   const [page, setPage] = useState(1);
   const [searchParams, setSearchParams] = useSearchParams();
   const movieName = searchParams.get('query') || '';
-  const { data, error } = useRequest(
-    '/search/movie',
-    page,
-    movieName || { query: '' }
-  );
+  const { data, error } = useRequest('/search/movie', page, movieName || { query: '' });
 
   const updateQueryString = query => {
     const nextParams = query !== '' && { query };
     setSearchParams(nextParams);
   };
+
+  const handlePageChange = useCallback(
+    page => {
+      setPage(page);
+    },
+    [setPage]
+  );
 
   return (
     <Wrapper>
@@ -30,10 +33,7 @@ const Movies = () => {
         <SearchBox value={movieName} onChange={updateQueryString} />
         {error && <h2>failed to load</h2>}
         {!data && searchParams !== '' ? (
-          <Skeleton
-            count={15}
-            style={{ height: 30, width: 300, marginTop: 15 }}
-          />
+          <Skeleton count={15} style={{ height: 30, width: 300, marginTop: 15 }} />
         ) : data?.total_results === 0 && movieName && !error ? (
           <h2>No results found</h2>
         ) : (
@@ -43,8 +43,7 @@ const Movies = () => {
               <PageButtons
                 page={page}
                 totalPages={data.total_pages}
-                onPrevPage={() => setPage(page - 1)}
-                onNextPage={() => setPage(page + 1)}
+                handlePageChange={handlePageChange}
               />
             )}
           </>
