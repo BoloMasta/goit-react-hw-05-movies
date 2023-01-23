@@ -105,7 +105,7 @@ const MovieDetails = () => {
                 <TextData>{data.overview !== '' ? data.overview : 'No overview provided'}</TextData>
                 <Header>Genres</Header>
                 <TextData>{genresList !== '' ? genresList : 'No genres provided'}</TextData>
-                {productionCompaniesList[0] !== '' && productionCompaniesList.length > 0 && (
+                {productionCompaniesList[0] !== null && productionCompaniesList.length > 0 && (
                   <>
                     <Header>Production companies</Header>
                     <ProuctionCompanies>{productionCompaniesList}</ProuctionCompanies>
