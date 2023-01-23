@@ -1,5 +1,5 @@
-import { Wrapper, Header, Paragraph, StyledLink } from '../components/Pages.styled/NotFound.styled';
-import { Button } from 'components/Buttons/Button';
+import { Wrapper, Header, Paragraph, StyledLink } from './NotFound.styled';
+import { Button } from '../components/Buttons/Button';
 
 const NotFound = () => {
   return (

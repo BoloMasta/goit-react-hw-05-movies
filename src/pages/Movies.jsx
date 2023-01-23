@@ -7,7 +7,6 @@ import { SearchBox } from 'components/SearchBox/SearchBox';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { PageButtons } from 'components/Buttons/PageButtons';
 import { useRequest } from '../services/useRequest';
-import propTypes from 'prop-types';
 
 const Movies = () => {
   const [page, setPage] = useState(1);
@@ -54,12 +53,3 @@ const Movies = () => {
 };
 
 export default Movies;
-
-Movies.propTypes = {
-  page: propTypes.number,
-  setPage: propTypes.func,
-  data: propTypes.object,
-  error: propTypes.object,
-  movieName: propTypes.string,
-  updateQueryString: propTypes.func,
-};

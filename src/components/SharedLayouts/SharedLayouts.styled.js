@@ -108,3 +108,8 @@ Container.propTypes = {
 Logo.propTypes = {
   logoImage: propTypes.string,
 };
+
+Link.propTypes = {
+  to: propTypes.string,
+  onclick: propTypes.func,
+};

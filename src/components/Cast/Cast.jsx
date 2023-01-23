@@ -124,20 +124,3 @@ castReducer.propTypes = {
     ]),
   }),
 };
-
-Cast.propTypes = {
-  movieId: propTypes.number,
-  data: propTypes.shape({
-    cast: propTypes.arrayOf(
-      propTypes.shape({
-        id: propTypes.number,
-        profile_path: propTypes.string,
-        name: propTypes.string,
-        character: propTypes.string,
-      })
-    ),
-  }),
-  error: propTypes.object,
-  dispatch: propTypes.func,
-  handleCastImageLoaded: propTypes.func,
-};

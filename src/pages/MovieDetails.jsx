@@ -1,13 +1,11 @@
-import { useParams, useLocation, Outlet } from 'react-router-dom';
+import { useParams, useLocation, useNavigate, Outlet } from 'react-router-dom';
 import { useState, Suspense } from 'react';
 import { useRequest } from '../services/useRequest';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { Loader } from '../components/Loader/Loader';
 import { Button } from 'components/Buttons/Button';
-import NotFound from '../pages/NotFound';
 import defaultPoster from 'images/default_poster.jpg';
-import propTypes from 'prop-types';
 
 import {
   Wrapper,
@@ -22,18 +20,25 @@ import {
   ProuctionCompanies,
   ExtraButtonsList,
   ExtraButton,
-} from 'components/Pages.styled/MovieDetails.styled';
+} from './MovieDetails.styled';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
   const { data, error } = useRequest(`/movie/${movieId}`);
   const location = useLocation();
-  const backLinkHref = location.state?.from ?? '/';
+  const backLinkHref = {
+    if (location.state?.from) {
+      pathname: location.state.from,
+      state: { ...location.state },
+    } else {
+      pathname: '/',
+  }
+};
+
   const [isImageLoaded, setIsImageLoaded] = useState({
     loaded: false,
     height: 0,
   });
-
   const genresList = data?.genres?.map(genre => genre.name).join(', ');
   const productionCompaniesList = data?.production_companies?.map(
     ({ id, logo_path, name }) =>
@@ -49,19 +54,20 @@ const MovieDetails = () => {
         </li>
       )
   );
-
   const handleImageLoaded = () => {
     setIsImageLoaded({ loaded: true, height: 500 });
   };
-
   const setExtraPageHeight = e => {
     document.body.style.height = '1100px';
     e.currentTarget.blur();
   };
+  const navigate = useNavigate();
+
+  console.log(location);
 
   return (
     <>
-      {error && <NotFound />}
+      {error && navigate('/')}
       {!data && !error ? (
         <Loader />
       ) : (
@@ -139,13 +145,3 @@ const MovieDetails = () => {
 };
 
 export default MovieDetails;
-
-MovieDetails.propTypes = {
-  movieId: propTypes.string,
-  location: propTypes.object,
-  isImageLoaded: propTypes.object,
-  genresList: propTypes.string,
-  productionCompaniesList: propTypes.array,
-  handleImageLoaded: propTypes.func,
-  setExtraPageHeight: propTypes.func,
-};
