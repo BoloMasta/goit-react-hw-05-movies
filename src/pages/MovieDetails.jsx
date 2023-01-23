@@ -1,10 +1,11 @@
-import { useParams, useLocation, useNavigate, Outlet } from 'react-router-dom';
+import { useParams, useLocation, Outlet } from 'react-router-dom';
 import { useState, useMemo, Suspense } from 'react';
 import { useRequest } from '../services/useRequest';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { Loader } from '../components/Loader/Loader';
 import { Button } from 'components/Buttons/Button';
+import NotFound from './NotFound';
 import defaultPoster from 'images/default_poster.jpg';
 
 import {
@@ -57,16 +58,14 @@ const MovieDetails = () => {
     document.body.style.height = '1100px';
     e.currentTarget.blur();
   };
-  const navigate = useNavigate();
 
   return (
     <>
-      {error && navigate('/')}
+      {error && <NotFound />}
       {!data && !error ? (
         <Loader />
       ) : (
-        data &&
-        genresList && (
+        data && (
           <Wrapper backdrop={data.backdrop_path}>
             <BackButton to={backLinkHref}>
               <Button label="Go back" icon="left_arrow" />
