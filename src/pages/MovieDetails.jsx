@@ -1,5 +1,5 @@
 import { useParams, useLocation, useNavigate, Outlet } from 'react-router-dom';
-import { useState, Suspense } from 'react';
+import { useState, useMemo, Suspense } from 'react';
 import { useRequest } from '../services/useRequest';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -26,15 +26,11 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   const { data, error } = useRequest(`/movie/${movieId}`);
   const location = useLocation();
-  const backLinkHref = {
-    if (location.state?.from) {
-      pathname: location.state.from,
-      state: { ...location.state },
-    } else {
-      pathname: '/',
-  }
-};
-
+  const backLinkHref = useMemo(
+    () => location.state?.from || '/',
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [movieId]
+  );
   const [isImageLoaded, setIsImageLoaded] = useState({
     loaded: false,
     height: 0,
@@ -62,8 +58,6 @@ const MovieDetails = () => {
     e.currentTarget.blur();
   };
   const navigate = useNavigate();
-
-  console.log(location);
 
   return (
     <>
