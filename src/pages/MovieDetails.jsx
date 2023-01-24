@@ -27,10 +27,7 @@ const MovieDetails = () => {
   const { data, error } = useRequest(`/movie/${movieId}`);
   const location = useLocation();
   const backLinkHref = useRef(location.state?.from || '/');
-  const [isImageLoaded, setIsImageLoaded] = useState({
-    loaded: false,
-    height: 0,
-  });
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
   const genresList = data?.genres?.map(genre => genre.name).join(', ');
   const productionCompaniesList = data?.production_companies?.map(
     ({ id, logo_path, name }) =>
@@ -47,7 +44,7 @@ const MovieDetails = () => {
       )
   );
   const handleImageLoaded = () => {
-    setIsImageLoaded({ loaded: true, height: 500 });
+    setIsImageLoaded(true);
   };
 
   return (
@@ -66,7 +63,7 @@ const MovieDetails = () => {
             <MovieCard>
               {/* ===== POSTER ===== */}
               <SkeletonTheme baseColor="#dddddd" highlightColor="#a5a5a5">
-                {!isImageLoaded.loaded && <Skeleton width={333} height={500} />}
+                {!isImageLoaded && <Skeleton width={333} height={500} />}
               </SkeletonTheme>
               <Poster
                 src={
@@ -76,7 +73,7 @@ const MovieDetails = () => {
                 }
                 alt={data.title}
                 onLoad={handleImageLoaded}
-                height={isImageLoaded.height}
+                height={isImageLoaded ? 500 : 0}
               />
 
               {/* ===== MOVIE INFO ===== */}

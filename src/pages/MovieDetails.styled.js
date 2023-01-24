@@ -63,7 +63,6 @@ export const MovieCard = styled.div`
 `;
 
 export const Poster = styled.img`
-  max-height: ${props => props.height};
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   align-self: flex-start;
