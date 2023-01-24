@@ -1,11 +1,10 @@
-import { useParams, useLocation, Outlet } from 'react-router-dom';
-import { useState, useMemo, Suspense } from 'react';
+import { useParams, useLocation, Navigate, Outlet } from 'react-router-dom';
+import { useState, useRef, Suspense } from 'react';
 import { useRequest } from '../services/useRequest';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { Loader } from '../components/Loader/Loader';
 import { Button } from 'components/Buttons/Button';
-import NotFound from './NotFound';
 import defaultPoster from 'images/default_poster.jpg';
 
 import {
@@ -27,11 +26,7 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   const { data, error } = useRequest(`/movie/${movieId}`);
   const location = useLocation();
-  const backLinkHref = useMemo(
-    () => location.state?.from || '/',
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [movieId]
-  );
+  const backLinkHref = useRef(location.state?.from || '/');
   const [isImageLoaded, setIsImageLoaded] = useState({
     loaded: false,
     height: 0,
@@ -61,13 +56,13 @@ const MovieDetails = () => {
 
   return (
     <>
-      {error && <NotFound />}
+      {error && <Navigate to="/" />}
       {!data && !error ? (
         <Loader />
       ) : (
         data && (
           <Wrapper backdrop={data.backdrop_path}>
-            <BackButton to={backLinkHref}>
+            <BackButton to={backLinkHref.current}>
               <Button label="Go back" icon="left_arrow" />
             </BackButton>
             <MovieCard>
