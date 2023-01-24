@@ -29,6 +29,7 @@ const MovieDetails = () => {
   const backLinkHref = useRef(location.state?.from || '/');
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const genresList = data?.genres?.map(genre => genre.name).join(', ');
+
   const productionCompaniesList = data?.production_companies?.map(
     ({ id, logo_path, name }) =>
       logo_path && (
@@ -56,9 +57,7 @@ const MovieDetails = () => {
               <Button label="Go back" icon="left_arrow" />
             </BackButton>
 
-            {/* ===== MOVIE CARD ===== */}
             <MovieCard>
-              {/* ===== POSTER ===== */}
               <SkeletonTheme baseColor="#dddddd" highlightColor="#a5a5a5">
                 {!isImageLoaded && <Skeleton width={333} height={500} />}
               </SkeletonTheme>
@@ -73,7 +72,6 @@ const MovieDetails = () => {
                 height={isImageLoaded ? 500 : 0}
               />
 
-              {/* ===== MOVIE INFO ===== */}
               <Info>
                 <Title>
                   {data.title}
@@ -104,18 +102,14 @@ const MovieDetails = () => {
               </Info>
             </MovieCard>
 
-            {/* ===== EXTRA BUTTONS ===== */}
             <ExtraButtonsList>
-              <li>
-                <ExtraButton to="cast">
-                  <Button label="Cast" icon="cast" />
-                </ExtraButton>
-              </li>
-              <li>
-                <ExtraButton to="reviews">
-                  <Button label="Reviews" icon="review" />
-                </ExtraButton>
-              </li>
+              <ExtraButton to="cast">
+                <Button label="Cast" icon="cast" />
+              </ExtraButton>
+
+              <ExtraButton to="reviews">
+                <Button label="Reviews" icon="review" />
+              </ExtraButton>
             </ExtraButtonsList>
 
             <Suspense fallback={<Loader />}>
