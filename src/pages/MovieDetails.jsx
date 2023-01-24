@@ -43,9 +43,6 @@ const MovieDetails = () => {
         </li>
       )
   );
-  const handleImageLoaded = () => {
-    setIsImageLoaded(true);
-  };
 
   return (
     <>
@@ -72,7 +69,7 @@ const MovieDetails = () => {
                     : `https://image.tmdb.org/t/p/w500${data.poster_path}`
                 }
                 alt={data.title}
-                onLoad={handleImageLoaded}
+                onLoad={() => setIsImageLoaded(true)}
                 height={isImageLoaded ? 500 : 0}
               />
 
