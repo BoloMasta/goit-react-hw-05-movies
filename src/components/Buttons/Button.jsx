@@ -6,15 +6,15 @@ import left_arrow from '../../images/left_arrow.png';
 import right_arrow from '../../images/right_arrow.png';
 import filmTape from '../../images/film-tape.png';
 
-export const Button = ({ label, icon, reverse, onClick, disabled }) => {
-  const icons = {
-    cast,
-    review,
-    left_arrow,
-    right_arrow,
-    filmTape,
-  };
+const icons = {
+  cast,
+  review,
+  left_arrow,
+  right_arrow,
+  filmTape,
+};
 
+export const Button = ({ label, icon, reverse, onClick, disabled }) => {
   return (
     <Wrapper onClick={onClick} disabled={disabled}>
       {reverse && label}
