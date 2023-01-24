@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { SWRConfig } from 'swr';
 import { BrowserRouter } from 'react-router-dom';
 import { App } from 'components/App';
-import { GlobalStyles } from 'components/GlobalStyles/GlobalStyles.styled';
+import { GlobalStyles } from 'styles/GlobalStyles.styled';
 
 const fetcher = async (...args) => {
   const res = await fetch(...args);

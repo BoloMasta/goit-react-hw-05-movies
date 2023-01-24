@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-import { Wrapper } from 'components/GlobalStyles/GlobalStyles.styled';
+import { Wrapper } from 'styles/GlobalStyles.styled';
 import { SearchBox } from 'components/SearchBox/SearchBox';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { PageButtons } from 'components/Buttons/PageButtons';

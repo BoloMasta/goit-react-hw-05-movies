@@ -18,7 +18,6 @@ export const GlobalStyles = createGlobalStyle`
         color: #000;
         overflow-y: scroll;    
         overflow: overlay;
-        
     }  
 
     code {

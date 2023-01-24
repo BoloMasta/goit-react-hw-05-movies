@@ -49,10 +49,6 @@ const MovieDetails = () => {
   const handleImageLoaded = () => {
     setIsImageLoaded({ loaded: true, height: 500 });
   };
-  const setExtraPageHeight = e => {
-    document.body.style.height = '1100px';
-    e.currentTarget.blur();
-  };
 
   return (
     <>
@@ -118,12 +114,12 @@ const MovieDetails = () => {
             <ExtraButtonsList>
               <li>
                 <ExtraButton to="cast">
-                  <Button label="Cast" icon="cast" onClick={setExtraPageHeight} />
+                  <Button label="Cast" icon="cast" />
                 </ExtraButton>
               </li>
               <li>
                 <ExtraButton to="reviews">
-                  <Button label="Reviews" icon="review" onClick={setExtraPageHeight} />
+                  <Button label="Reviews" icon="review" />
                 </ExtraButton>
               </li>
             </ExtraButtonsList>
