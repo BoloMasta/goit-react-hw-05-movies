@@ -65,7 +65,10 @@ const MovieDetails = () => {
             <BackButton to={backLinkHref.current}>
               <Button label="Go back" icon="left_arrow" />
             </BackButton>
+
+            {/* ===== MOVIE CARD ===== */}
             <MovieCard>
+              {/* ===== POSTER ===== */}
               <SkeletonTheme baseColor="#dddddd" highlightColor="#a5a5a5">
                 {!isImageLoaded.loaded && <Skeleton width={333} height={500} />}
               </SkeletonTheme>
@@ -79,6 +82,8 @@ const MovieDetails = () => {
                 onLoad={handleImageLoaded}
                 height={isImageLoaded.height}
               />
+
+              {/* ===== MOVIE INFO ===== */}
               <Info>
                 <Title>
                   {data.title}
@@ -109,6 +114,7 @@ const MovieDetails = () => {
               </Info>
             </MovieCard>
 
+            {/* ===== EXTRA BUTTONS ===== */}
             <ExtraButtonsList>
               <li>
                 <ExtraButton to="cast">
